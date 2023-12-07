@@ -625,7 +625,7 @@ struct WGPUAdapterProperties {
 	name              &i8
 	driverDescription &i8
 	adapterType       WGPUAdapterType
-	backendType       WGPUBackendType
+	backend_type      WGPUBackendType
 }
 
 struct WGPUBindGroupEntry {
@@ -690,9 +690,9 @@ struct WGPUCompilationMessage {
 }
 
 struct WGPUComputePassTimestampWrites {
-	querySet                  WGPUQuerySet
-	beginningOfPassWriteIndex u32
-	endOfPassWriteIndex       u32
+	query_set                     WGPUQuerySet
+	beginning_of_pass_write_index u32
+	end_of_pass_write_index       u32
 }
 
 struct WGPUConstantEntry {
@@ -712,9 +712,9 @@ struct WGPUInstanceDescriptor {
 }
 
 struct WGPULimits {
-	maxTextureDimension1D                     u32
-	maxTextureDimension2D                     u32
-	maxTextureDimension3D                     u32
+	max_texture_dimension_1d                  u32
+	max_texture_dimension_2d                  u32
+	max_texture_dimension_3d                  u32
 	maxTextureArrayLayers                     u32
 	maxBindGroups                             u32
 	maxBindGroupsPlusVertexBuffers            u32
@@ -723,34 +723,34 @@ struct WGPULimits {
 	maxDynamicStorageBuffersPerPipelineLayout u32
 	maxSampledTexturesPerShaderStage          u32
 	maxSamplersPerShaderStage                 u32
-	maxStorageBuffersPerShaderStage           u32
-	maxStorageTexturesPerShaderStage          u32
+	max_storage_buffers_per_shader_stage      u32
+	max_storage_textures_per_shader_stage     u32
 	maxUniformBuffersPerShaderStage           u32
 	maxUniformBufferBindingSize               u64
 	maxStorageBufferBindingSize               u64
-	minUniformBufferOffsetAlignment           u32
-	minStorageBufferOffsetAlignment           u32
-	maxVertexBuffers                          u32
-	maxBufferSize                             u64
-	maxVertexAttributes                       u32
-	maxVertexBufferArrayStride                u32
-	maxInterStageShaderComponents             u32
-	maxInterStageShaderVariables              u32
-	maxColorAttachments                       u32
-	maxColorAttachmentBytesPerSample          u32
-	maxComputeWorkgroupStorageSize            u32
-	maxComputeInvocationsPerWorkgroup         u32
-	maxComputeWorkgroupSizeX                  u32
-	maxComputeWorkgroupSizeY                  u32
-	maxComputeWorkgroupSizeZ                  u32
-	maxComputeWorkgroupsPerDimension          u32
+	min_uniform_buffer_offset_alignment       u32
+	min_storage_buffer_offset_alignment       u32
+	max_vertex_buffers                        u32
+	max_buffer_size                           u64
+	max_vertex_attributes                     u32
+	max_vertex_buffer_array_stride            u32
+	max_inter_stage_shader_components         u32
+	max_inter_stage_shader_variables          u32
+	max_color_attachments                     u32
+	max_color_attachment_bytes_per_sample     u32
+	max_compute_workgroup_storage_size        u32
+	max_compute_invocations_per_workgroup     u32
+	max_compute_workgroup_size_x              u32
+	max_compute_workgroup_size_y              u32
+	max_compute_workgroup_size_z              u32
+	max_compute_workgroups_per_dimension      u32
 }
 
 struct WGPUMultisampleState {
-	next_in_chain          &WGPUChainedStruct
-	count                  u32
-	mask                   u32
-	alphaToCoverageEnabled WGPUBool
+	next_in_chain             &WGPUChainedStruct
+	count                     u32
+	mask                      u32
+	alpha_to_coverage_enabled WGPUBool
 }
 
 struct WGPUOrigin3D {
@@ -760,23 +760,23 @@ struct WGPUOrigin3D {
 }
 
 struct WGPUPipelineLayoutDescriptor {
-	next_in_chain        &WGPUChainedStruct
-	label                &i8
-	bindGroupLayoutCount usize
-	bindGroupLayouts     &WGPUBindGroupLayout
+	next_in_chain           &WGPUChainedStruct
+	label                   &i8
+	bind_group_layout_count usize
+	bind_group_layouts      &WGPUBindGroupLayout
 }
 
 struct WGPUPrimitiveDepthClipControl {
-	chain          WGPUChainedStruct
-	unclippedDepth WGPUBool
+	chain           WGPUChainedStruct
+	unclipped_depth WGPUBool
 }
 
 struct WGPUPrimitiveState {
-	next_in_chain    &WGPUChainedStruct
-	topology         WGPUPrimitiveTopology
-	stripIndexFormat WGPUIndexFormat
-	frontFace        WGPUFrontFace
-	cullMode         WGPUCullMode
+	next_in_chain      &WGPUChainedStruct
+	topology           WGPUPrimitiveTopology
+	strip_index_format WGPUIndexFormat
+	front_face         WGPUFrontFace
+	cull_mode          WGPUCullMode
 }
 
 struct WGPUQuerySetDescriptor {
@@ -797,45 +797,45 @@ struct WGPURenderBundleDescriptor {
 }
 
 struct WGPURenderBundleEncoderDescriptor {
-	next_in_chain      &WGPUChainedStruct
-	label              &i8
-	colorFormatCount   usize
-	colorFormats       &WGPUTextureFormat
-	depthStencilFormat WGPUTextureFormat
-	sample_count       u32
-	depthReadOnly      WGPUBool
-	stencilReadOnly    WGPUBool
+	next_in_chain        &WGPUChainedStruct
+	label                &i8
+	color_format_count   usize
+	color_formats        &WGPUTextureFormat
+	depth_stencil_format WGPUTextureFormat
+	sample_count         u32
+	depth_read_only      WGPUBool
+	stencil_read_only    WGPUBool
 }
 
 struct WGPURenderPassDepthStencilAttachment {
-	view              WGPUTextureView
-	depthLoadOp       WGPULoadOp
-	depthStoreOp      WGPUStoreOp
-	depthClearValue   f32
-	depthReadOnly     WGPUBool
-	stencilLoadOp     WGPULoadOp
-	stencilStoreOp    WGPUStoreOp
-	stencilClearValue u32
-	stencilReadOnly   WGPUBool
+	view                WGPUTextureView
+	depth_load_op       WGPULoadOp
+	depth_store_op      WGPUStoreOp
+	depth_clear_value   f32
+	depth_read_only     WGPUBool
+	stencil_load_op     WGPULoadOp
+	stencil_store_op    WGPUStoreOp
+	stencil_clear_value u32
+	stencil_read_only   WGPUBool
 }
 
 struct WGPURenderPassDescriptorMaxDrawCount {
-	chain        WGPUChainedStruct
-	maxDrawCount u64
+	chain          WGPUChainedStruct
+	max_draw_count u64
 }
 
 struct WGPURenderPassTimestampWrites {
-	querySet                  WGPUQuerySet
-	beginningOfPassWriteIndex u32
-	endOfPassWriteIndex       u32
+	query_set                     WGPUQuerySet
+	beginning_of_pass_write_index u32
+	end_of_pass_write_index       u32
 }
 
 struct WGPURequestAdapterOptions {
-	next_in_chain        &WGPUChainedStruct
-	compatibleSurface    WGPUSurface
-	powerPreference      WGPUPowerPreference
-	backendType          WGPUBackendType
-	forceFallbackAdapter WGPUBool
+	next_in_chain          &WGPUChainedStruct
+	compatible_surface     WGPUSurface
+	power_preference       WGPUPowerPreference
+	backend_type           WGPUBackendType
+	force_fallback_adapter WGPUBool
 }
 
 struct WGPUSamplerBindingLayout {
@@ -846,14 +846,14 @@ struct WGPUSamplerBindingLayout {
 struct WGPUSamplerDescriptor {
 	next_in_chain  &WGPUChainedStruct
 	label          &i8
-	addressModeU   WGPUAddressMode
-	addressModeV   WGPUAddressMode
-	addressModeW   WGPUAddressMode
-	magFilter      WGPUFilterMode
-	minFilter      WGPUFilterMode
-	mipmapFilter   WGPUMipmapFilterMode
-	lodMinClamp    f32
-	lodMaxClamp    f32
+	address_mode_u WGPUAddressMode
+	address_mode_v WGPUAddressMode
+	address_mode_w WGPUAddressMode
+	mag_filter     WGPUFilterMode
+	min_filter     WGPUFilterMode
+	mipmap_filter  WGPUMipmapFilterMode
+	lod_min_clamp  f32
+	load_max_clamp f32
 	compare        WGPUCompareFunction
 	max_anisotropy u16
 }
@@ -1144,13 +1144,13 @@ struct WGPUDeviceDescriptor {
 }
 
 struct WGPURenderPassDescriptor {
-	next_in_chain          &WGPUChainedStruct
-	label                  &i8
-	color_attachment_count usize
-	color_attachments      &WGPURenderPassColorAttachment
-	depthStencilAttachment &WGPURenderPassDepthStencilAttachment
-	occlusionQuerySet      WGPUQuerySet
-	timestamp_writes       &WGPURenderPassTimestampWrites
+	next_in_chain            &WGPUChainedStruct
+	label                    &i8
+	color_attachment_count   usize
+	color_attachments        &WGPURenderPassColorAttachment
+	depth_stencil_attachment &WGPURenderPassDepthStencilAttachment
+	occlusion_query_set      WGPUQuerySet
+	timestamp_writes         &WGPURenderPassTimestampWrites
 }
 
 struct WGPUVertexState {
@@ -1159,7 +1159,7 @@ struct WGPUVertexState {
 	entry_point    &i8
 	constant_count usize
 	constants      &WGPUConstantEntry
-	bufferCount    usize
+	buffer_count   usize
 	buffers        &WGPUVertexBufferLayout
 }
 
@@ -1169,7 +1169,7 @@ struct WGPUFragmentState {
 	entry_point    &i8
 	constant_count usize
 	constants      &WGPUConstantEntry
-	targetCount    usize
+	target_count   usize
 	targets        &WGPUColorTargetState
 }
 
@@ -1179,7 +1179,7 @@ struct WGPURenderPipelineDescriptor {
 	layout        WGPUPipelineLayout
 	vertex        WGPUVertexState
 	primitive     WGPUPrimitiveState
-	depthStencil  &WGPUDepthStencilState
+	depth_stencil &WGPUDepthStencilState
 	multisample   WGPUMultisampleState
 	fragment      &WGPUFragmentState
 }
