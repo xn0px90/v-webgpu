@@ -1,4 +1,3 @@
-@[translated]
 module webgpu
 
 //#include "webgpu.h"
@@ -618,7 +617,7 @@ struct WGPUChainedStructOut {
 }
 
 struct WGPUAdapterProperties {
-	nextInChain       &WGPUChainedStructOut
+	next_in_chain     &WGPUChainedStructOut
 	vendorID          u32
 	vendorName        &i8
 	architecture      &i8
@@ -630,13 +629,13 @@ struct WGPUAdapterProperties {
 }
 
 struct WGPUBindGroupEntry {
-	nextInChain &WGPUChainedStruct
-	binding     u32
-	buffer      WGPUBuffer
-	offset      u64
-	size        u64
-	sampler     WGPUSampler
-	textureView WGPUTextureView
+	next_in_chain &WGPUChainedStruct
+	binding       u32
+	buffer        WGPUBuffer
+	offset        u64
+	size          u64
+	sampler       WGPUSampler
+	textureView   WGPUTextureView
 }
 
 struct WGPUBlendComponent {
@@ -646,14 +645,14 @@ struct WGPUBlendComponent {
 }
 
 struct WGPUBufferBindingLayout {
-	nextInChain      &WGPUChainedStruct
+	next_in_chain    &WGPUChainedStruct
 	type_            WGPUBufferBindingType
 	hasDynamicOffset WGPUBool
 	minBindingSize   u64
 }
 
 struct WGPUBufferDescriptor {
-	nextInChain      &WGPUChainedStruct
+	next_in_chain    &WGPUChainedStruct
 	label            &i8
 	usage            WGPUBufferUsageFlags
 	size             u64
@@ -668,26 +667,26 @@ struct WGPUColor {
 }
 
 struct WGPUCommandBufferDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
+	next_in_chain &WGPUChainedStruct
+	label         &i8
 }
 
 struct WGPUCommandEncoderDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
+	next_in_chain &WGPUChainedStruct
+	label         &i8
 }
 
 struct WGPUCompilationMessage {
-	nextInChain  &WGPUChainedStruct
-	message      &i8
-	type_        WGPUCompilationMessageType
-	lineNum      u64
-	linePos      u64
-	offset       u64
-	length       u64
-	utf16LinePos u64
-	utf16Offset  u64
-	utf16Length  u64
+	next_in_chain &WGPUChainedStruct
+	message       &i8
+	type_         WGPUCompilationMessageType
+	lineNum       u64
+	linePos       u64
+	offset        u64
+	length        u64
+	utf16LinePos  u64
+	utf16Offset   u64
+	utf16Length   u64
 }
 
 struct WGPUComputePassTimestampWrites {
@@ -697,9 +696,9 @@ struct WGPUComputePassTimestampWrites {
 }
 
 struct WGPUConstantEntry {
-	nextInChain &WGPUChainedStruct
-	key         &i8
-	value       f64
+	next_in_chain &WGPUChainedStruct
+	key           &i8
+	value         f64
 }
 
 struct WGPUExtent3D {
@@ -709,7 +708,7 @@ struct WGPUExtent3D {
 }
 
 struct WGPUInstanceDescriptor {
-	nextInChain &WGPUChainedStruct
+	next_in_chain &WGPUChainedStruct
 }
 
 struct WGPULimits {
@@ -748,7 +747,7 @@ struct WGPULimits {
 }
 
 struct WGPUMultisampleState {
-	nextInChain            &WGPUChainedStruct
+	next_in_chain          &WGPUChainedStruct
 	count                  u32
 	mask                   u32
 	alphaToCoverageEnabled WGPUBool
@@ -761,7 +760,7 @@ struct WGPUOrigin3D {
 }
 
 struct WGPUPipelineLayoutDescriptor {
-	nextInChain          &WGPUChainedStruct
+	next_in_chain        &WGPUChainedStruct
 	label                &i8
 	bindGroupLayoutCount usize
 	bindGroupLayouts     &WGPUBindGroupLayout
@@ -773,7 +772,7 @@ struct WGPUPrimitiveDepthClipControl {
 }
 
 struct WGPUPrimitiveState {
-	nextInChain      &WGPUChainedStruct
+	next_in_chain    &WGPUChainedStruct
 	topology         WGPUPrimitiveTopology
 	stripIndexFormat WGPUIndexFormat
 	frontFace        WGPUFrontFace
@@ -781,29 +780,29 @@ struct WGPUPrimitiveState {
 }
 
 struct WGPUQuerySetDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
-	type_       WGPUQueryType
-	count       u32
+	next_in_chain &WGPUChainedStruct
+	label         &i8
+	type_         WGPUQueryType
+	count         u32
 }
 
 struct WGPUQueueDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
+	next_in_chain &WGPUChainedStruct
+	label         &i8
 }
 
 struct WGPURenderBundleDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
+	next_in_chain &WGPUChainedStruct
+	label         &i8
 }
 
 struct WGPURenderBundleEncoderDescriptor {
-	nextInChain        &WGPUChainedStruct
+	next_in_chain      &WGPUChainedStruct
 	label              &i8
 	colorFormatCount   usize
 	colorFormats       &WGPUTextureFormat
 	depthStencilFormat WGPUTextureFormat
-	sampleCount        u32
+	sample_count       u32
 	depthReadOnly      WGPUBool
 	stencilReadOnly    WGPUBool
 }
@@ -832,7 +831,7 @@ struct WGPURenderPassTimestampWrites {
 }
 
 struct WGPURequestAdapterOptions {
-	nextInChain          &WGPUChainedStruct
+	next_in_chain        &WGPUChainedStruct
 	compatibleSurface    WGPUSurface
 	powerPreference      WGPUPowerPreference
 	backendType          WGPUBackendType
@@ -840,35 +839,35 @@ struct WGPURequestAdapterOptions {
 }
 
 struct WGPUSamplerBindingLayout {
-	nextInChain &WGPUChainedStruct
-	type_       WGPUSamplerBindingType
+	next_in_chain &WGPUChainedStruct
+	type_         WGPUSamplerBindingType
 }
 
 struct WGPUSamplerDescriptor {
-	nextInChain   &WGPUChainedStruct
-	label         &i8
-	addressModeU  WGPUAddressMode
-	addressModeV  WGPUAddressMode
-	addressModeW  WGPUAddressMode
-	magFilter     WGPUFilterMode
-	minFilter     WGPUFilterMode
-	mipmapFilter  WGPUMipmapFilterMode
-	lodMinClamp   f32
-	lodMaxClamp   f32
-	compare       WGPUCompareFunction
-	maxAnisotropy u16
+	next_in_chain  &WGPUChainedStruct
+	label          &i8
+	addressModeU   WGPUAddressMode
+	addressModeV   WGPUAddressMode
+	addressModeW   WGPUAddressMode
+	magFilter      WGPUFilterMode
+	minFilter      WGPUFilterMode
+	mipmapFilter   WGPUMipmapFilterMode
+	lodMinClamp    f32
+	lodMaxClamp    f32
+	compare        WGPUCompareFunction
+	max_anisotropy u16
 }
 
 struct WGPUShaderModuleCompilationHint {
-	nextInChain &WGPUChainedStruct
-	entryPoint  &i8
-	layout      WGPUPipelineLayout
+	next_in_chain &WGPUChainedStruct
+	entry_point   &i8
+	layout        WGPUPipelineLayout
 }
 
 struct WGPUShaderModuleSPIRVDescriptor {
-	chain    WGPUChainedStruct
-	codeSize u32
-	code     &u32
+	chain     WGPUChainedStruct
+	code_size u32
+	code      &u32
 }
 
 struct WGPUShaderModuleWGSLDescriptor {
@@ -877,45 +876,45 @@ struct WGPUShaderModuleWGSLDescriptor {
 }
 
 struct WGPUStencilFaceState {
-	compare     WGPUCompareFunction
-	failOp      WGPUStencilOperation
-	depthFailOp WGPUStencilOperation
-	passOp      WGPUStencilOperation
+	compare       WGPUCompareFunction
+	fail_op       WGPUStencilOperation
+	depth_fail_op WGPUStencilOperation
+	pass_op       WGPUStencilOperation
 }
 
 struct WGPUStorageTextureBindingLayout {
-	nextInChain   &WGPUChainedStruct
-	access        WGPUStorageTextureAccess
-	format        WGPUTextureFormat
-	viewDimension WGPUTextureViewDimension
+	next_in_chain  &WGPUChainedStruct
+	access         WGPUStorageTextureAccess
+	format         WGPUTextureFormat
+	view_dimension WGPUTextureViewDimension
 }
 
 struct WGPUSurfaceCapabilities {
-	nextInChain      &WGPUChainedStructOut
-	formatCount      usize
-	formats          &WGPUTextureFormat
-	presentModeCount usize
-	presentModes     &WGPUPresentMode
-	alphaModeCount   usize
-	alphaModes       &WGPUCompositeAlphaMode
+	next_in_chain      &WGPUChainedStructOut
+	format_count       usize
+	formats            &WGPUTextureFormat
+	present_mode_count usize
+	present_modes      &WGPUPresentMode
+	alpha_mode_count   usize
+	alpha_modes        &WGPUCompositeAlphaMode
 }
 
 struct WGPUSurfaceConfiguration {
-	nextInChain     &WGPUChainedStruct
-	device          WGPUDevice
-	format          WGPUTextureFormat
-	usage           WGPUTextureUsageFlags
-	viewFormatCount usize
-	viewFormats     &WGPUTextureFormat
-	alphaMode       WGPUCompositeAlphaMode
-	width           u32
-	height          u32
-	presentMode     WGPUPresentMode
+	next_in_chain     &WGPUChainedStruct
+	device            WGPUDevice
+	format            WGPUTextureFormat
+	usage             WGPUTextureUsageFlags
+	view_format_count usize
+	view_formats      &WGPUTextureFormat
+	alpha_mode        WGPUCompositeAlphaMode
+	width             u32
+	height            u32
+	present_mode      WGPUPresentMode
 }
 
 struct WGPUSurfaceDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
+	next_in_chain &WGPUChainedStruct
+	label         &i8
 }
 
 struct WGPUSurfaceDescriptorFromAndroidNativeWindow {
@@ -964,53 +963,53 @@ struct WGPUSurfaceTexture {
 }
 
 struct WGPUTextureBindingLayout {
-	nextInChain   &WGPUChainedStruct
-	sampleType    WGPUTextureSampleType
-	viewDimension WGPUTextureViewDimension
-	multisampled  WGPUBool
+	next_in_chain  &WGPUChainedStruct
+	sample_type    WGPUTextureSampleType
+	view_dimension WGPUTextureViewDimension
+	multisampled   WGPUBool
 }
 
 struct WGPUTextureDataLayout {
-	nextInChain  &WGPUChainedStruct
-	offset       u64
-	bytesPerRow  u32
-	rowsPerImage u32
+	next_in_chain  &WGPUChainedStruct
+	offset         u64
+	bytes_per_row  u32
+	rows_per_image u32
 }
 
 struct WGPUTextureViewDescriptor {
-	nextInChain     &WGPUChainedStruct
-	label           &i8
-	format          WGPUTextureFormat
-	dimension       WGPUTextureViewDimension
-	baseMipLevel    u32
-	mipLevelCount   u32
-	baseArrayLayer  u32
-	arrayLayerCount u32
-	aspect          WGPUTextureAspect
+	next_in_chain     &WGPUChainedStruct
+	label             &i8
+	format            WGPUTextureFormat
+	dimension         WGPUTextureViewDimension
+	base_mip_level    u32
+	mip_level_count   u32
+	base_array_layer  u32
+	array_level_count u32
+	aspect            WGPUTextureAspect
 }
 
 struct WGPUVertexAttribute {
-	format         WGPUVertexFormat
-	offset         u64
-	shaderLocation u32
+	format          WGPUVertexFormat
+	offset          u64
+	shader_location u32
 }
 
 struct WGPUBindGroupDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
-	layout      WGPUBindGroupLayout
-	entryCount  usize
-	entries     &WGPUBindGroupEntry
+	next_in_chain &WGPUChainedStruct
+	label         &i8
+	layout        WGPUBindGroupLayout
+	entry_count   usize
+	entries       &WGPUBindGroupEntry
 }
 
 struct WGPUBindGroupLayoutEntry {
-	nextInChain    &WGPUChainedStruct
-	binding        u32
-	visibility     WGPUShaderStageFlags
-	buffer         WGPUBufferBindingLayout
-	sampler        WGPUSamplerBindingLayout
-	texture        WGPUTextureBindingLayout
-	storageTexture WGPUStorageTextureBindingLayout
+	next_in_chain   &WGPUChainedStruct
+	binding         u32
+	visibility      WGPUShaderStageFlags
+	buffer          WGPUBufferBindingLayout
+	sampler         WGPUSamplerBindingLayout
+	texture         WGPUTextureBindingLayout
+	storage_texture WGPUStorageTextureBindingLayout
 }
 
 struct WGPUBlendState {
@@ -1019,170 +1018,170 @@ struct WGPUBlendState {
 }
 
 struct WGPUCompilationInfo {
-	nextInChain  &WGPUChainedStruct
-	messageCount usize
-	messages     &WGPUCompilationMessage
+	next_in_chain &WGPUChainedStruct
+	message_count usize
+	messages      &WGPUCompilationMessage
 }
 
 struct WGPUComputePassDescriptor {
-	nextInChain     &WGPUChainedStruct
-	label           &i8
-	timestampWrites &WGPUComputePassTimestampWrites
+	next_in_chain    &WGPUChainedStruct
+	label            &i8
+	timestamp_writes &WGPUComputePassTimestampWrites
 }
 
 struct WGPUDepthStencilState {
-	nextInChain         &WGPUChainedStruct
-	format              WGPUTextureFormat
-	depthWriteEnabled   WGPUBool
-	depthCompare        WGPUCompareFunction
-	stencilFront        WGPUStencilFaceState
-	stencilBack         WGPUStencilFaceState
-	stencilReadMask     u32
-	stencilWriteMask    u32
-	depthBias           int
-	depthBiasSlopeScale f32
-	depthBiasClamp      f32
+	next_in_chain          &WGPUChainedStruct
+	format                 WGPUTextureFormat
+	depth_write_enabled    WGPUBool
+	depth_compare          WGPUCompareFunction
+	stencil_front          WGPUStencilFaceState
+	stencil_back           WGPUStencilFaceState
+	stencil_read_mask      u32
+	stencil_write_mask     u32
+	depth_bias             int
+	depth_bias_slope_scale f32
+	depth_bias_clamp       f32
 }
 
 struct WGPUImageCopyBuffer {
-	nextInChain &WGPUChainedStruct
-	layout      WGPUTextureDataLayout
-	buffer      WGPUBuffer
+	next_in_chain &WGPUChainedStruct
+	layout        WGPUTextureDataLayout
+	buffer        WGPUBuffer
 }
 
 struct WGPUImageCopyTexture {
-	nextInChain &WGPUChainedStruct
-	texture     WGPUTexture
-	mipLevel    u32
-	origin      WGPUOrigin3D
-	aspect      WGPUTextureAspect
+	next_in_chain &WGPUChainedStruct
+	texture       WGPUTexture
+	mip_level     u32
+	origin        WGPUOrigin3D
+	aspect        WGPUTextureAspect
 }
 
 struct WGPUProgrammableStageDescriptor {
-	nextInChain   &WGPUChainedStruct
-	module_       WGPUShaderModule
-	entryPoint    &i8
-	constantCount usize
-	constants     &WGPUConstantEntry
+	next_in_chain  &WGPUChainedStruct
+	module_        WGPUShaderModule
+	entry_point    &i8
+	constant_count usize
+	constants      &WGPUConstantEntry
 }
 
 struct WGPURenderPassColorAttachment {
-	nextInChain   &WGPUChainedStruct
-	view          WGPUTextureView
-	resolveTarget WGPUTextureView
-	loadOp        WGPULoadOp
-	storeOp       WGPUStoreOp
-	clearValue    WGPUColor
+	next_in_chain  &WGPUChainedStruct
+	view           WGPUTextureView
+	resolve_target WGPUTextureView
+	load_op        WGPULoadOp
+	store_op       WGPUStoreOp
+	clear_value    WGPUColor
 }
 
 struct WGPURequiredLimits {
-	nextInChain &WGPUChainedStruct
-	limits      WGPULimits
+	next_in_chain &WGPUChainedStruct
+	limits        WGPULimits
 }
 
 struct WGPUShaderModuleDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
-	hintCount   usize
-	hints       &WGPUShaderModuleCompilationHint
+	next_in_chain &WGPUChainedStruct
+	label         &i8
+	hint_count    usize
+	hints         &WGPUShaderModuleCompilationHint
 }
 
 struct WGPUSupportedLimits {
-	nextInChain &WGPUChainedStructOut
-	limits      WGPULimits
+	next_in_chain &WGPUChainedStructOut
+	limits        WGPULimits
 }
 
 struct WGPUTextureDescriptor {
-	nextInChain     &WGPUChainedStruct
-	label           &i8
-	usage           WGPUTextureUsageFlags
-	dimension       WGPUTextureDimension
-	size            WGPUExtent3D
-	format          WGPUTextureFormat
-	mipLevelCount   u32
-	sampleCount     u32
-	viewFormatCount usize
-	viewFormats     &WGPUTextureFormat
+	next_in_chain     &WGPUChainedStruct
+	label             &i8
+	usage             WGPUTextureUsageFlags
+	dimension         WGPUTextureDimension
+	size              WGPUExtent3D
+	format            WGPUTextureFormat
+	mip_level_count   u32
+	sample_count      u32
+	view_format_count usize
+	view_formats      &WGPUTextureFormat
 }
 
 struct WGPUVertexBufferLayout {
-	arrayStride    u64
-	stepMode       WGPUVertexStepMode
-	attributeCount usize
-	attributes     &WGPUVertexAttribute
+	array_stride    u64
+	step_mode       WGPUVertexStepMode
+	attribute_count usize
+	attributes      &WGPUVertexAttribute
 }
 
 struct WGPUBindGroupLayoutDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
-	entryCount  usize
-	entries     &WGPUBindGroupLayoutEntry
+	next_in_chain &WGPUChainedStruct
+	label         &i8
+	entry_count   usize
+	entries       &WGPUBindGroupLayoutEntry
 }
 
 struct WGPUColorTargetState {
-	nextInChain &WGPUChainedStruct
-	format      WGPUTextureFormat
-	blend       &WGPUBlendState
-	writeMask   WGPUColorWriteMaskFlags
+	next_in_chain &WGPUChainedStruct
+	format        WGPUTextureFormat
+	blend         &WGPUBlendState
+	write_mask    WGPUColorWriteMaskFlags
 }
 
 struct WGPUComputePipelineDescriptor {
-	nextInChain &WGPUChainedStruct
-	label       &i8
-	layout      WGPUPipelineLayout
-	compute     WGPUProgrammableStageDescriptor
+	next_in_chain &WGPUChainedStruct
+	label         &i8
+	layout        WGPUPipelineLayout
+	compute       WGPUProgrammableStageDescriptor
 }
 
 struct WGPUDeviceDescriptor {
-	nextInChain          &WGPUChainedStruct
-	label                &i8
-	requiredFeatureCount usize
-	requiredFeatures     &WGPUFeatureName
-	requiredLimits       &WGPURequiredLimits
-	defaultQueue         WGPUQueueDescriptor
-	deviceLostCallback   WGPUDeviceLostCallback
-	deviceLostUserdata   voidptr
+	next_in_chain          &WGPUChainedStruct
+	label                  &i8
+	required_feature_count usize
+	required_features      &WGPUFeatureName
+	require_limits         &WGPURequiredLimits
+	default_queue          WGPUQueueDescriptor
+	device_lost_callback   WGPUDeviceLostCallback
+	device_lost_user_data  voidptr
 }
 
 struct WGPURenderPassDescriptor {
-	nextInChain            &WGPUChainedStruct
+	next_in_chain          &WGPUChainedStruct
 	label                  &i8
-	colorAttachmentCount   usize
-	colorAttachments       &WGPURenderPassColorAttachment
+	color_attachment_count usize
+	color_attachments      &WGPURenderPassColorAttachment
 	depthStencilAttachment &WGPURenderPassDepthStencilAttachment
 	occlusionQuerySet      WGPUQuerySet
-	timestampWrites        &WGPURenderPassTimestampWrites
+	timestamp_writes       &WGPURenderPassTimestampWrites
 }
 
 struct WGPUVertexState {
-	nextInChain   &WGPUChainedStruct
-	module_       WGPUShaderModule
-	entryPoint    &i8
-	constantCount usize
-	constants     &WGPUConstantEntry
-	bufferCount   usize
-	buffers       &WGPUVertexBufferLayout
+	next_in_chain  &WGPUChainedStruct
+	module_        WGPUShaderModule
+	entry_point    &i8
+	constant_count usize
+	constants      &WGPUConstantEntry
+	bufferCount    usize
+	buffers        &WGPUVertexBufferLayout
 }
 
 struct WGPUFragmentState {
-	nextInChain   &WGPUChainedStruct
-	module_       WGPUShaderModule
-	entryPoint    &i8
-	constantCount usize
-	constants     &WGPUConstantEntry
-	targetCount   usize
-	targets       &WGPUColorTargetState
+	next_in_chain  &WGPUChainedStruct
+	module_        WGPUShaderModule
+	entry_point    &i8
+	constant_count usize
+	constants      &WGPUConstantEntry
+	targetCount    usize
+	targets        &WGPUColorTargetState
 }
 
 struct WGPURenderPipelineDescriptor {
-	nextInChain  &WGPUChainedStruct
-	label        &i8
-	layout       WGPUPipelineLayout
-	vertex       WGPUVertexState
-	primitive    WGPUPrimitiveState
-	depthStencil &WGPUDepthStencilState
-	multisample  WGPUMultisampleState
-	fragment     &WGPUFragmentState
+	next_in_chain &WGPUChainedStruct
+	label         &i8
+	layout        WGPUPipelineLayout
+	vertex        WGPUVertexState
+	primitive     WGPUPrimitiveState
+	depthStencil  &WGPUDepthStencilState
+	multisample   WGPUMultisampleState
+	fragment      &WGPUFragmentState
 }
 
 type WGPUProcCreateInstance = fn (&WGPUInstanceDescriptor) WGPUInstance
