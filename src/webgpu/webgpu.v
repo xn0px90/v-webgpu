@@ -1,4 +1,3 @@
-@[translated]
 module webgpu
 
 type Size_t = u32
@@ -1547,548 +1546,1109 @@ type WGPUProcTextureViewReference = fn (WGPUTextureView)
 
 type WGPUProcTextureViewRelease = fn (WGPUTextureView)
 
-@[c: 'wgpuCreateInstance']
-fn wgpucreateinstance(descriptor &WGPUInstanceDescriptor) WGPUInstance
+fn C.wgpuCreateInstance(descriptor &WGPUInstanceDescriptor) WGPUInstance
 
-@[c: 'wgpuGetProcAddress']
-fn wgpugetprocaddress(device WGPUDevice, procname &i8) WGPUProc
+pub fn wgpucreateinstance(descriptor &WGPUInstanceDescriptor) WGPUInstance {
+	return C.wgpuCreateInstance(descriptor)
+}
 
-@[c: 'wgpuAdapterEnumerateFeatures']
-fn wgpuadapterenumeratefeatures(adapter WGPUAdapter, features &WGPUFeatureName) usize
+fn C.wgpuGetProcAddress(device WGPUDevice, procname &i8) WGPUProc
 
-@[c: 'wgpuAdapterGetLimits']
-fn wgpuadaptergetlimits(adapter WGPUAdapter, limits &WGPUSupportedLimits) WGPUBool
+pub fn wgpugetprocaddress(device WGPUDevice, procname &i8) WGPUProc {
+	return C.wgpuGetProcAddress(device, procname)
+}
 
-@[c: 'wgpuAdapterGetProperties']
-fn wgpuadaptergetproperties(adapter WGPUAdapter, properties &WGPUAdapterProperties)
+fn C.wgpuAdapterEnumerateFeatures(adapter WGPUAdapter, features &WGPUFeatureName) usize
 
-@[c: 'wgpuAdapterHasFeature']
-fn wgpuadapterhasfeature(adapter WGPUAdapter, feature WGPUFeatureName) WGPUBool
+pub fn wgpuadapterenumeratefeatures(adapter WGPUAdapter, features &WGPUFeatureName) usize {
+	return C.wgpuAdapterEnumerateFeatures(adapter, features)
+}
 
-@[c: 'wgpuAdapterRequestDevice']
-fn wgpuadapterrequestdevice(adapter WGPUAdapter, descriptor &WGPUDeviceDescriptor, callback WGPURequestDeviceCallback, userdata voidptr)
+fn C.wgpuAdapterGetLimits(adapter WGPUAdapter, limits &WGPUSupportedLimits) WGPUBool
 
-@[c: 'wgpuAdapterReference']
-fn wgpuadapterreference(adapter WGPUAdapter)
+pub fn wgpuadaptergetlimits(adapter WGPUAdapter, limits &WGPUSupportedLimits) WGPUBool {
+	return C.wgpuAdapterGetLimits(adapter, limits)
+}
 
-@[c: 'wgpuAdapterRelease']
-fn wgpuadapterrelease(adapter WGPUAdapter)
+fn C.wgpuAdapterGetProperties(adapter WGPUAdapter, properties &WGPUAdapterProperties)
 
-@[c: 'wgpuBindGroupSetLabel']
-fn wgpubindgroupsetlabel(bindgroup WGPUBindGroup, label &i8)
+pub fn wgpuadaptergetproperties(adapter WGPUAdapter, properties &WGPUAdapterProperties) {
+	C.wgpuAdapterGetProperties(adapter, properties)
+}
 
-@[c: 'wgpuBindGroupReference']
-fn wgpubindgroupreference(bindgroup WGPUBindGroup)
+fn C.wgpuAdapterHasFeature(adapter WGPUAdapter, feature WGPUFeatureName) WGPUBool
 
-@[c: 'wgpuBindGroupRelease']
-fn wgpubindgrouprelease(bindgroup WGPUBindGroup)
+pub fn wgpuadapterhasfeature(adapter WGPUAdapter, feature WGPUFeatureName) WGPUBool {
+	return C.wgpuAdapterHasFeature(adapter, feature)
+}
 
-@[c: 'wgpuBindGroupLayoutSetLabel']
-fn wgpubindgrouplayoutsetlabel(bindgrouplayout WGPUBindGroupLayout, label &i8)
+fn C.wgpuAdapterRequestDevice(adapter WGPUAdapter, descriptor &WGPUDeviceDescriptor, callback WGPURequestDeviceCallback, userdata voidptr)
 
-@[c: 'wgpuBindGroupLayoutReference']
-fn wgpubindgrouplayoutreference(bindgrouplayout WGPUBindGroupLayout)
+pub fn wgpuadapterrequestdevice(adapter WGPUAdapter, descriptor &WGPUDeviceDescriptor, callback WGPURequestDeviceCallback, userdata voidptr) {
+	C.wgpuAdapterRequestDevice(adapter, descriptor, callback, userdata)
+}
 
-@[c: 'wgpuBindGroupLayoutRelease']
-fn wgpubindgrouplayoutrelease(bindgrouplayout WGPUBindGroupLayout)
+fn C.wgpuAdapterReference(adapter WGPUAdapter)
 
-@[c: 'wgpuBufferDestroy']
-fn wgpubufferdestroy(buffer WGPUBuffer)
+pub fn wgpuadapterreference(adapter WGPUAdapter) {
+	C.wgpuAdapterReference(adapter)
+}
 
-@[c: 'wgpuBufferGetConstMappedRange']
-fn wgpubuffergetconstmappedrange(buffer WGPUBuffer, offset usize, size usize) voidptr
+fn C.wgpuAdapterRelease(adapter WGPUAdapter)
 
-@[c: 'wgpuBufferGetMapState']
-fn wgpubuffergetmapstate(buffer WGPUBuffer) WGPUBufferMapState
+pub fn wgpuadapterrelease(adapter WGPUAdapter) {
+	C.wgpuAdapterRelease(adapter)
+}
 
-@[c: 'wgpuBufferGetMappedRange']
-fn wgpubuffergetmappedrange(buffer WGPUBuffer, offset usize, size usize) voidptr
+fn C.wgpuBindGroupSetLabel(bindgroup WGPUBindGroup, label &i8)
 
-@[c: 'wgpuBufferGetSize']
-fn wgpubuffergetsize(buffer WGPUBuffer) u64
+pub fn wgpubindgroupsetlabel(bindgroup WGPUBindGroup, label &i8) {
+	C.wgpuBindGroupSetLabel(bindgroup, label)
+}
 
-@[c: 'wgpuBufferGetUsage']
-fn wgpubuffergetusage(buffer WGPUBuffer) WGPUBufferUsageFlags
+fn C.wgpuBindGroupReference(bindgroup WGPUBindGroup)
 
-@[c: 'wgpuBufferMapAsync']
-fn wgpubuffermapasync(buffer WGPUBuffer, mode WGPUMapModeFlags, offset usize, size usize, callback WGPUBufferMapCallback, userdata voidptr)
+pub fn wgpubindgroupreference(bindgroup WGPUBindGroup) {
+	C.wgpuBindGroupReference(bindgroup)
+}
 
-@[c: 'wgpuBufferSetLabel']
-fn wgpubuffersetlabel(buffer WGPUBuffer, label &i8)
+fn C.wgpuBindGroupRelease(bindgroup WGPUBindGroup)
 
-@[c: 'wgpuBufferUnmap']
-fn wgpubufferunmap(buffer WGPUBuffer)
+pub fn wgpubindgrouprelease(bindgroup WGPUBindGroup) {
+	C.wgpuBindGroupRelease(bindgroup)
+}
 
-@[c: 'wgpuBufferReference']
-fn wgpubufferreference(buffer WGPUBuffer)
+fn C.wgpuBindGroupLayoutSetLabel(bindgrouplayout WGPUBindGroupLayout, label &i8)
 
-@[c: 'wgpuBufferRelease']
-fn wgpubufferrelease(buffer WGPUBuffer)
+pub fn wgpubindgrouplayoutsetlabel(bindgrouplayout WGPUBindGroupLayout, label &i8) {
+	C.wgpuBindGroupLayoutSetLabel(bindgrouplayout, label)
+}
 
-@[c: 'wgpuCommandBufferSetLabel']
-fn wgpucommandbuffersetlabel(commandbuffer WGPUCommandBuffer, label &i8)
+fn C.wgpuBindGroupLayoutReference(bindgrouplayout WGPUBindGroupLayout)
 
-@[c: 'wgpuCommandBufferReference']
-fn wgpucommandbufferreference(commandbuffer WGPUCommandBuffer)
+pub fn wgpubindgrouplayoutreference(bindgrouplayout WGPUBindGroupLayout) {
+	C.wgpuBindGroupLayoutReference(bindgrouplayout)
+}
 
-@[c: 'wgpuCommandBufferRelease']
-fn wgpucommandbufferrelease(commandbuffer WGPUCommandBuffer)
+fn C.wgpuBindGroupLayoutRelease(bindgrouplayout WGPUBindGroupLayout)
 
-@[c: 'wgpuCommandEncoderBeginComputePass']
-fn wgpucommandencoderbegincomputepass(commandencoder WGPUCommandEncoder, descriptor &WGPUComputePassDescriptor) WGPUComputePassEncoder
+pub fn wgpubindgrouplayoutrelease(bindgrouplayout WGPUBindGroupLayout) {
+	C.wgpuBindGroupLayoutRelease(bindgrouplayout)
+}
 
-@[c: 'wgpuCommandEncoderBeginRenderPass']
-fn wgpucommandencoderbeginrenderpass(commandencoder WGPUCommandEncoder, descriptor &WGPURenderPassDescriptor) WGPURenderPassEncoder
+fn C.wgpuBufferDestroy(buffer WGPUBuffer)
 
-@[c: 'wgpuCommandEncoderClearBuffer']
-fn wgpucommandencoderclearbuffer(commandencoder WGPUCommandEncoder, buffer WGPUBuffer, offset u64, size u64)
+pub fn wgpubufferdestroy(buffer WGPUBuffer) {
+	C.wgpuBufferDestroy(buffer)
+}
 
-@[c: 'wgpuCommandEncoderCopyBufferToBuffer']
-fn wgpucommandencodercopybuffertobuffer(commandencoder WGPUCommandEncoder, source WGPUBuffer, sourceoffset u64, destination WGPUBuffer, destinationoffset u64, size u64)
+fn C.wgpuBufferGetConstMappedRange(buffer WGPUBuffer, offset usize, size usize) voidptr
 
-@[c: 'wgpuCommandEncoderCopyBufferToTexture']
-fn wgpucommandencodercopybuffertotexture(commandencoder WGPUCommandEncoder, source &WGPUImageCopyBuffer, destination &WGPUImageCopyTexture, copysize &WGPUExtent3D)
+pub fn wgpubuffergetconstmappedrange(buffer WGPUBuffer, offset usize, size usize) voidptr {
+	return C.wgpuBufferGetConstMappedRange(buffer, offset, size)
+}
 
-@[c: 'wgpuCommandEncoderCopyTextureToBuffer']
-fn wgpucommandencodercopytexturetobuffer(commandencoder WGPUCommandEncoder, source &WGPUImageCopyTexture, destination &WGPUImageCopyBuffer, copysize &WGPUExtent3D)
+fn C.wgpuBufferGetMapState(buffer WGPUBuffer) WGPUBufferMapState
 
-@[c: 'wgpuCommandEncoderCopyTextureToTexture']
-fn wgpucommandencodercopytexturetotexture(commandencoder WGPUCommandEncoder, source &WGPUImageCopyTexture, destination &WGPUImageCopyTexture, copysize &WGPUExtent3D)
+pub fn wgpubuffergetmapstate(buffer WGPUBuffer) WGPUBufferMapState {
+	return C.wgpuBufferGetMapState(buffer)
+}
 
-@[c: 'wgpuCommandEncoderFinish']
-fn wgpucommandencoderfinish(commandencoder WGPUCommandEncoder, descriptor &WGPUCommandBufferDescriptor) WGPUCommandBuffer
+fn C.wgpuBufferGetMappedRange(buffer WGPUBuffer, offset usize, size usize) voidptr
 
-@[c: 'wgpuCommandEncoderInsertDebugMarker']
-fn wgpucommandencoderinsertdebugmarker(commandencoder WGPUCommandEncoder, markerlabel &i8)
+pub fn wgpubuffergetmappedrange(buffer WGPUBuffer, offset usize, size usize) voidptr {
+	return C.wgpuBufferGetMappedRange(buffer, offset, size)
+}
 
-@[c: 'wgpuCommandEncoderPopDebugGroup']
-fn wgpucommandencoderpopdebuggroup(commandencoder WGPUCommandEncoder)
+fn C.wgpuBufferGetSize(buffer WGPUBuffer) u64
 
-@[c: 'wgpuCommandEncoderPushDebugGroup']
-fn wgpucommandencoderpushdebuggroup(commandencoder WGPUCommandEncoder, grouplabel &i8)
+pub fn wgpubuffergetsize(buffer WGPUBuffer) u64 {
+	return C.wgpuBufferGetSize(buffer)
+}
 
-@[c: 'wgpuCommandEncoderResolveQuerySet']
-fn wgpucommandencoderresolvequeryset(commandencoder WGPUCommandEncoder, queryset WGPUQuerySet, firstquery u32, querycount u32, destination WGPUBuffer, destinationoffset u64)
+fn C.wgpuBufferGetUsage(buffer WGPUBuffer) WGPUBufferUsageFlags
 
-@[c: 'wgpuCommandEncoderSetLabel']
-fn wgpucommandencodersetlabel(commandencoder WGPUCommandEncoder, label &i8)
+pub fn wgpubuffergetusage(buffer WGPUBuffer) WGPUBufferUsageFlags {
+	return C.wgpuBufferGetUsage(buffer)
+}
 
-@[c: 'wgpuCommandEncoderWriteTimestamp']
-fn wgpucommandencoderwritetimestamp(commandencoder WGPUCommandEncoder, queryset WGPUQuerySet, queryindex u32)
+fn C.wgpuBufferMapAsync(buffer WGPUBuffer, mode WGPUMapModeFlags, offset usize, size usize, callback WGPUBufferMapCallback, userdata voidptr)
 
-@[c: 'wgpuCommandEncoderReference']
-fn wgpucommandencoderreference(commandencoder WGPUCommandEncoder)
+pub fn wgpubuffermapasync(buffer WGPUBuffer, mode WGPUMapModeFlags, offset usize, size usize, callback WGPUBufferMapCallback, userdata voidptr) {
+	C.wgpuBufferMapAsync(buffer, mode, offset, size, callback, userdata)
+}
 
-@[c: 'wgpuCommandEncoderRelease']
-fn wgpucommandencoderrelease(commandencoder WGPUCommandEncoder)
+fn C.wgpuBufferSetLabel(buffer WGPUBuffer, label &i8)
 
-@[c: 'wgpuComputePassEncoderDispatchWorkgroups']
-fn wgpucomputepassencoderdispatchworkgroups(computepassencoder WGPUComputePassEncoder, workgroupcountx u32, workgroupcounty u32, workgroupcountz u32)
+pub fn wgpubuffersetlabel(buffer WGPUBuffer, label &i8) {
+	C.wgpuBufferSetLabel(buffer, label)
+}
 
-@[c: 'wgpuComputePassEncoderDispatchWorkgroupsIndirect']
-fn wgpucomputepassencoderdispatchworkgroupsindirect(computepassencoder WGPUComputePassEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
+fn C.wgpuBufferUnmap(buffer WGPUBuffer)
 
-@[c: 'wgpuComputePassEncoderEnd']
-fn wgpucomputepassencoderend(computepassencoder WGPUComputePassEncoder)
+pub fn wgpubufferunmap(buffer WGPUBuffer) {
+	C.wgpuBufferUnmap(buffer)
+}
 
-@[c: 'wgpuComputePassEncoderInsertDebugMarker']
-fn wgpucomputepassencoderinsertdebugmarker(computepassencoder WGPUComputePassEncoder, markerlabel &i8)
+fn C.wgpuBufferReference(buffer WGPUBuffer)
 
-@[c: 'wgpuComputePassEncoderPopDebugGroup']
-fn wgpucomputepassencoderpopdebuggroup(computepassencoder WGPUComputePassEncoder)
+pub fn wgpubufferreference(buffer WGPUBuffer) {
+	C.wgpuBufferReference(buffer)
+}
 
-@[c: 'wgpuComputePassEncoderPushDebugGroup']
-fn wgpucomputepassencoderpushdebuggroup(computepassencoder WGPUComputePassEncoder, grouplabel &i8)
+fn C.wgpuBufferRelease(buffer WGPUBuffer)
 
-@[c: 'wgpuComputePassEncoderSetBindGroup']
-fn wgpucomputepassencodersetbindgroup(computepassencoder WGPUComputePassEncoder, groupindex u32, group WGPUBindGroup, dynamicoffsetcount usize, dynamicoffsets &u32)
+pub fn wgpubufferrelease(buffer WGPUBuffer) {
+	C.wgpuBufferRelease(buffer)
+}
 
-@[c: 'wgpuComputePassEncoderSetLabel']
-fn wgpucomputepassencodersetlabel(computepassencoder WGPUComputePassEncoder, label &i8)
+fn C.wgpuCommandBufferSetLabel(commandbuffer WGPUCommandBuffer, label &i8)
 
-@[c: 'wgpuComputePassEncoderSetPipeline']
-fn wgpucomputepassencodersetpipeline(computepassencoder WGPUComputePassEncoder, pipeline WGPUComputePipeline)
+pub fn wgpucommandbuffersetlabel(commandbuffer WGPUCommandBuffer, label &i8) {
+	C.wgpuCommandBufferSetLabel(commandbuffer, label)
+}
 
-@[c: 'wgpuComputePassEncoderReference']
-fn wgpucomputepassencoderreference(computepassencoder WGPUComputePassEncoder)
+fn C.wgpuCommandBufferReference(commandbuffer WGPUCommandBuffer)
 
-@[c: 'wgpuComputePassEncoderRelease']
-fn wgpucomputepassencoderrelease(computepassencoder WGPUComputePassEncoder)
+pub fn wgpucommandbufferreference(commandbuffer WGPUCommandBuffer) {
+	C.wgpuCommandBufferReference(commandbuffer)
+}
 
-@[c: 'wgpuComputePipelineGetBindGroupLayout']
-fn wgpucomputepipelinegetbindgrouplayout(computepipeline WGPUComputePipeline, groupindex u32) WGPUBindGroupLayout
+fn C.wgpuCommandBufferRelease(commandbuffer WGPUCommandBuffer)
 
-@[c: 'wgpuComputePipelineSetLabel']
-fn wgpucomputepipelinesetlabel(computepipeline WGPUComputePipeline, label &i8)
+pub fn wgpucommandbufferrelease(commandbuffer WGPUCommandBuffer) {
+	C.wgpuCommandBufferRelease(commandbuffer)
+}
 
-@[c: 'wgpuComputePipelineReference']
-fn wgpucomputepipelinereference(computepipeline WGPUComputePipeline)
+fn C.wgpuCommandEncoderBeginComputePass(commandencoder WGPUCommandEncoder, descriptor &WGPUComputePassDescriptor) WGPUComputePassEncoder
 
-@[c: 'wgpuComputePipelineRelease']
-fn wgpucomputepipelinerelease(computepipeline WGPUComputePipeline)
+pub fn wgpucommandencoderbegincomputepass(commandencoder WGPUCommandEncoder, descriptor &WGPUComputePassDescriptor) WGPUComputePassEncoder {
+	return C.wgpuCommandEncoderBeginComputePass(commandencoder, descriptor)
+}
 
-@[c: 'wgpuDeviceCreateBindGroup']
-fn wgpudevicecreatebindgroup(device WGPUDevice, descriptor &WGPUBindGroupDescriptor) WGPUBindGroup
+fn C.wgpuCommandEncoderBeginRenderPass(commandencoder WGPUCommandEncoder, descriptor &WGPURenderPassDescriptor) WGPURenderPassEncoder
 
-@[c: 'wgpuDeviceCreateBindGroupLayout']
-fn wgpudevicecreatebindgrouplayout(device WGPUDevice, descriptor &WGPUBindGroupLayoutDescriptor) WGPUBindGroupLayout
+pub fn wgpucommandencoderbeginrenderpass(commandencoder WGPUCommandEncoder, descriptor &WGPURenderPassDescriptor) WGPURenderPassEncoder {
+	return C.wgpuCommandEncoderBeginRenderPass(commandencoder, descriptor)
+}
 
-@[c: 'wgpuDeviceCreateBuffer']
-fn wgpudevicecreatebuffer(device WGPUDevice, descriptor &WGPUBufferDescriptor) WGPUBuffer
+fn C.wgpuCommandEncoderClearBuffer(commandencoder WGPUCommandEncoder, buffer WGPUBuffer, offset u64, size u64)
 
-@[c: 'wgpuDeviceCreateCommandEncoder']
-fn wgpudevicecreatecommandencoder(device WGPUDevice, descriptor &WGPUCommandEncoderDescriptor) WGPUCommandEncoder
+pub fn wgpucommandencoderclearbuffer(commandencoder WGPUCommandEncoder, buffer WGPUBuffer, offset u64, size u64) {
+	C.wgpuCommandEncoderClearBuffer(commandencoder, buffer, offset, size)
+}
 
-@[c: 'wgpuDeviceCreateComputePipeline']
-fn wgpudevicecreatecomputepipeline(device WGPUDevice, descriptor &WGPUComputePipelineDescriptor) WGPUComputePipeline
+fn C.wgpuCommandEncoderCopyBufferToBuffer(commandencoder WGPUCommandEncoder, source WGPUBuffer, sourceoffset u64, destination WGPUBuffer, destinationoffset u64, size u64)
 
-@[c: 'wgpuDeviceCreateComputePipelineAsync']
-fn wgpudevicecreatecomputepipelineasync(device WGPUDevice, descriptor &WGPUComputePipelineDescriptor, callback WGPUCreateComputePipelineAsyncCallback, userdata voidptr)
+pub fn wgpucommandencodercopybuffertobuffer(commandencoder WGPUCommandEncoder, source WGPUBuffer, sourceoffset u64, destination WGPUBuffer, destinationoffset u64, size u64) {
+	C.wgpuCommandEncoderCopyBufferToBuffer(commandencoder, source, sourceoffset, destination,
+		destinationoffset, size)
+}
 
-@[c: 'wgpuDeviceCreatePipelineLayout']
-fn wgpudevicecreatepipelinelayout(device WGPUDevice, descriptor &WGPUPipelineLayoutDescriptor) WGPUPipelineLayout
+fn C.wgpuCommandEncoderCopyBufferToTexture(commandencoder WGPUCommandEncoder, source &WGPUImageCopyBuffer, destination &WGPUImageCopyTexture, copysize &WGPUExtent3D)
 
-@[c: 'wgpuDeviceCreateQuerySet']
-fn wgpudevicecreatequeryset(device WGPUDevice, descriptor &WGPUQuerySetDescriptor) WGPUQuerySet
+pub fn wgpucommandencodercopybuffertotexture(commandencoder WGPUCommandEncoder, source &WGPUImageCopyBuffer, destination &WGPUImageCopyTexture, copysize &WGPUExtent3D) {
+	C.wgpuCommandEncoderCopyBufferToTexture(commandencoder, source, destination, copysize)
+}
 
-@[c: 'wgpuDeviceCreateRenderBundleEncoder']
-fn wgpudevicecreaterenderbundleencoder(device WGPUDevice, descriptor &WGPURenderBundleEncoderDescriptor) WGPURenderBundleEncoder
+fn C.wgpuCommandEncoderCopyTextureToBuffer(commandencoder WGPUCommandEncoder, source &WGPUImageCopyTexture, destination &WGPUImageCopyBuffer, copysize &WGPUExtent3D)
 
-@[c: 'wgpuDeviceCreateRenderPipeline']
-fn wgpudevicecreaterenderpipeline(device WGPUDevice, descriptor &WGPURenderPipelineDescriptor) WGPURenderPipeline
+pub fn wgpucommandencodercopytexturetobuffer(commandencoder WGPUCommandEncoder, source &WGPUImageCopyTexture, destination &WGPUImageCopyBuffer, copysize &WGPUExtent3D) {
+	C.wgpuCommandEncoderCopyTextureToBuffer(commandencoder, source, destination, copysize)
+}
 
-@[c: 'wgpuDeviceCreateRenderPipelineAsync']
-fn wgpudevicecreaterenderpipelineasync(device WGPUDevice, descriptor &WGPURenderPipelineDescriptor, callback WGPUCreateRenderPipelineAsyncCallback, userdata voidptr)
+fn C.wgpuCommandEncoderCopyTextureToTexture(commandencoder WGPUCommandEncoder, source &WGPUImageCopyTexture, destination &WGPUImageCopyTexture, copysize &WGPUExtent3D)
 
-@[c: 'wgpuDeviceCreateSampler']
-fn wgpudevicecreatesampler(device WGPUDevice, descriptor &WGPUSamplerDescriptor) WGPUSampler
+pub fn wgpucommandencodercopytexturetotexture(commandencoder WGPUCommandEncoder, source &WGPUImageCopyTexture, destination &WGPUImageCopyTexture, copysize &WGPUExtent3D) {
+	C.wgpuCommandEncoderCopyTextureToTexture(commandencoder, source, destination, copysize)
+}
 
-@[c: 'wgpuDeviceCreateShaderModule']
-fn wgpudevicecreateshadermodule(device WGPUDevice, descriptor &WGPUShaderModuleDescriptor) WGPUShaderModule
+fn C.wgpuCommandEncoderFinish(commandencoder WGPUCommandEncoder, descriptor &WGPUCommandBufferDescriptor) WGPUCommandBuffer
 
-@[c: 'wgpuDeviceCreateTexture']
-fn wgpudevicecreatetexture(device WGPUDevice, descriptor &WGPUTextureDescriptor) WGPUTexture
+pub fn wgpucommandencoderfinish(commandencoder WGPUCommandEncoder, descriptor &WGPUCommandBufferDescriptor) WGPUCommandBuffer {
+	return C.wgpuCommandEncoderFinish(commandencoder, descriptor)
+}
 
-@[c: 'wgpuDeviceDestroy']
-fn wgpudevicedestroy(device WGPUDevice)
+fn C.wgpuCommandEncoderInsertDebugMarker(commandencoder WGPUCommandEncoder, markerlabel &i8)
 
-@[c: 'wgpuDeviceEnumerateFeatures']
-fn wgpudeviceenumeratefeatures(device WGPUDevice, features &WGPUFeatureName) usize
+pub fn wgpucommandencoderinsertdebugmarker(commandencoder WGPUCommandEncoder, markerlabel &i8) {
+	C.wgpuCommandEncoderInsertDebugMarker(commandencoder, markerlabel)
+}
 
-@[c: 'wgpuDeviceGetLimits']
-fn wgpudevicegetlimits(device WGPUDevice, limits &WGPUSupportedLimits) WGPUBool
+fn C.wgpuCommandEncoderPopDebugGroup(commandencoder WGPUCommandEncoder)
 
-@[c: 'wgpuDeviceGetQueue']
-fn wgpudevicegetqueue(device WGPUDevice) WGPUQueue
+pub fn wgpucommandencoderpopdebuggroup(commandencoder WGPUCommandEncoder) {
+	C.wgpuCommandEncoderPopDebugGroup(commandencoder)
+}
 
-@[c: 'wgpuDeviceHasFeature']
-fn wgpudevicehasfeature(device WGPUDevice, feature WGPUFeatureName) WGPUBool
+fn C.wgpuCommandEncoderPushDebugGroup(commandencoder WGPUCommandEncoder, grouplabel &i8)
 
-@[c: 'wgpuDevicePopErrorScope']
-fn wgpudevicepoperrorscope(device WGPUDevice, callback WGPUErrorCallback, userdata voidptr)
+pub fn wgpucommandencoderpushdebuggroup(commandencoder WGPUCommandEncoder, grouplabel &i8) {
+	C.wgpuCommandEncoderPushDebugGroup(commandencoder, grouplabel)
+}
 
-@[c: 'wgpuDevicePushErrorScope']
-fn wgpudevicepusherrorscope(device WGPUDevice, filter WGPUErrorFilter)
+fn C.wgpuCommandEncoderResolveQuerySet(commandencoder WGPUCommandEncoder, queryset WGPUQuerySet, firstquery u32, querycount u32, destination WGPUBuffer, destinationoffset u64)
 
-@[c: 'wgpuDeviceSetLabel']
-fn wgpudevicesetlabel(device WGPUDevice, label &i8)
+pub fn wgpucommandencoderresolvequeryset(commandencoder WGPUCommandEncoder, queryset WGPUQuerySet, firstquery u32, querycount u32, destination WGPUBuffer, destinationoffset u64) {
+	C.wgpuCommandEncoderResolveQuerySet(commandencoder, queryset, firstquery, querycount,
+		destination, destinationoffset)
+}
 
-@[c: 'wgpuDeviceSetUncapturedErrorCallback']
-fn wgpudevicesetuncapturederrorcallback(device WGPUDevice, callback WGPUErrorCallback, userdata voidptr)
+fn C.wgpuCommandEncoderSetLabel(commandencoder WGPUCommandEncoder, label &i8)
 
-@[c: 'wgpuDeviceReference']
-fn wgpudevicereference(device WGPUDevice)
+pub fn wgpucommandencodersetlabel(commandencoder WGPUCommandEncoder, label &i8) {
+	C.wgpuCommandEncoderSetLabel(commandencoder, label)
+}
 
-@[c: 'wgpuDeviceRelease']
-fn wgpudevicerelease(device WGPUDevice)
+fn C.wgpuCommandEncoderWriteTimestamp(commandencoder WGPUCommandEncoder, queryset WGPUQuerySet, queryindex u32)
 
-@[c: 'wgpuInstanceCreateSurface']
-fn wgpuinstancecreatesurface(instance WGPUInstance, descriptor &WGPUSurfaceDescriptor) WGPUSurface
+pub fn wgpucommandencoderwritetimestamp(commandencoder WGPUCommandEncoder, queryset WGPUQuerySet, queryindex u32) {
+	C.wgpuCommandEncoderWriteTimestamp(commandencoder, queryset, queryindex)
+}
 
-@[c: 'wgpuInstanceProcessEvents']
-fn wgpuinstanceprocessevents(instance WGPUInstance)
+fn C.wgpuCommandEncoderReference(commandencoder WGPUCommandEncoder)
 
-@[c: 'wgpuInstanceRequestAdapter']
-fn wgpuinstancerequestadapter(instance WGPUInstance, options &WGPURequestAdapterOptions, callback WGPURequestAdapterCallback, userdata voidptr)
+pub fn wgpucommandencoderreference(commandencoder WGPUCommandEncoder) {
+	C.wgpuCommandEncoderReference(commandencoder)
+}
 
-@[c: 'wgpuInstanceReference']
-fn wgpuinstancereference(instance WGPUInstance)
+fn C.wgpuCommandEncoderRelease(commandencoder WGPUCommandEncoder)
 
-@[c: 'wgpuInstanceRelease']
-fn wgpuinstancerelease(instance WGPUInstance)
+pub fn wgpucommandencoderrelease(commandencoder WGPUCommandEncoder) {
+	C.wgpuCommandEncoderRelease(commandencoder)
+}
 
-@[c: 'wgpuPipelineLayoutSetLabel']
-fn wgpupipelinelayoutsetlabel(pipelinelayout WGPUPipelineLayout, label &i8)
+fn C.wgpuComputePassEncoderDispatchWorkgroups(computepassencoder WGPUComputePassEncoder, workgroupcountx u32, workgroupcounty u32, workgroupcountz u32)
 
-@[c: 'wgpuPipelineLayoutReference']
-fn wgpupipelinelayoutreference(pipelinelayout WGPUPipelineLayout)
+pub fn wgpucomputepassencoderdispatchworkgroups(computepassencoder WGPUComputePassEncoder, workgroupcountx u32, workgroupcounty u32, workgroupcountz u32) {
+	C.wgpuComputePassEncoderDispatchWorkgroups(computepassencoder, workgroupcountx, workgroupcounty,
+		workgroupcountz)
+}
 
-@[c: 'wgpuPipelineLayoutRelease']
-fn wgpupipelinelayoutrelease(pipelinelayout WGPUPipelineLayout)
+fn C.wgpuComputePassEncoderDispatchWorkgroupsIndirect(computepassencoder WGPUComputePassEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
 
-@[c: 'wgpuQuerySetDestroy']
-fn wgpuquerysetdestroy(queryset WGPUQuerySet)
+pub fn wgpucomputepassencoderdispatchworkgroupsindirect(computepassencoder WGPUComputePassEncoder, indirectbuffer WGPUBuffer, indirectoffset u64) {
+	C.wgpuComputePassEncoderDispatchWorkgroupsIndirect(computepassencoder, indirectbuffer,
+		indirectoffset)
+}
 
-@[c: 'wgpuQuerySetGetCount']
-fn wgpuquerysetgetcount(queryset WGPUQuerySet) u32
+fn C.wgpuComputePassEncoderEnd(computepassencoder WGPUComputePassEncoder)
 
-@[c: 'wgpuQuerySetGetType']
-fn wgpuquerysetgettype(queryset WGPUQuerySet) WGPUQueryType
+pub fn wgpucomputepassencoderend(computepassencoder WGPUComputePassEncoder) {
+	C.wgpuComputePassEncoderEnd(computepassencoder)
+}
 
-@[c: 'wgpuQuerySetSetLabel']
-fn wgpuquerysetsetlabel(queryset WGPUQuerySet, label &i8)
+fn C.wgpuComputePassEncoderInsertDebugMarker(computepassencoder WGPUComputePassEncoder, markerlabel &i8)
 
-@[c: 'wgpuQuerySetReference']
-fn wgpuquerysetreference(queryset WGPUQuerySet)
+pub fn wgpucomputepassencoderinsertdebugmarker(computepassencoder WGPUComputePassEncoder, markerlabel &i8) {
+	C.wgpuComputePassEncoderInsertDebugMarker(computepassencoder, markerlabel)
+}
 
-@[c: 'wgpuQuerySetRelease']
-fn wgpuquerysetrelease(queryset WGPUQuerySet)
+fn C.wgpuComputePassEncoderPopDebugGroup(computepassencoder WGPUComputePassEncoder)
 
-@[c: 'wgpuQueueOnSubmittedWorkDone']
-fn wgpuqueueonsubmittedworkdone(queue WGPUQueue, callback WGPUQueueWorkDoneCallback, userdata voidptr)
+pub fn wgpucomputepassencoderpopdebuggroup(computepassencoder WGPUComputePassEncoder) {
+	C.wgpuComputePassEncoderPopDebugGroup(computepassencoder)
+}
 
-@[c: 'wgpuQueueSetLabel']
-fn wgpuqueuesetlabel(queue WGPUQueue, label &i8)
+fn C.wgpuComputePassEncoderPushDebugGroup(computepassencoder WGPUComputePassEncoder, grouplabel &i8)
 
-@[c: 'wgpuQueueSubmit']
-fn wgpuqueuesubmit(queue WGPUQueue, commandcount usize, commands &WGPUCommandBuffer)
+pub fn wgpucomputepassencoderpushdebuggroup(computepassencoder WGPUComputePassEncoder, grouplabel &i8) {
+	C.wgpuComputePassEncoderPushDebugGroup(computepassencoder, grouplabel)
+}
 
-@[c: 'wgpuQueueWriteBuffer']
-fn wgpuqueuewritebuffer(queue WGPUQueue, buffer WGPUBuffer, bufferoffset u64, data voidptr, size usize)
+fn C.wgpuComputePassEncoderSetBindGroup(computepassencoder WGPUComputePassEncoder, groupindex u32, group WGPUBindGroup, dynamicoffsetcount usize, dynamicoffsets &u32)
 
-@[c: 'wgpuQueueWriteTexture']
-fn wgpuqueuewritetexture(queue WGPUQueue, destination &WGPUImageCopyTexture, data voidptr, datasize usize, datalayout &WGPUTextureDataLayout, writesize &WGPUExtent3D)
+pub fn wgpucomputepassencodersetbindgroup(computepassencoder WGPUComputePassEncoder, groupindex u32, group WGPUBindGroup, dynamicoffsetcount usize, dynamicoffsets &u32) {
+	C.wgpuComputePassEncoderSetBindGroup(computepassencoder, groupindex, group, dynamicoffsetcount,
+		dynamicoffsets)
+}
 
-@[c: 'wgpuQueueReference']
-fn wgpuqueuereference(queue WGPUQueue)
+fn C.wgpuComputePassEncoderSetLabel(computepassencoder WGPUComputePassEncoder, label &i8)
 
-@[c: 'wgpuQueueRelease']
-fn wgpuqueuerelease(queue WGPUQueue)
+pub fn wgpucomputepassencodersetlabel(computepassencoder WGPUComputePassEncoder, label &i8) {
+	C.wgpuComputePassEncoderSetLabel(computepassencoder, label)
+}
 
-@[c: 'wgpuRenderBundleSetLabel']
-fn wgpurenderbundlesetlabel(renderbundle WGPURenderBundle, label &i8)
+fn C.wgpuComputePassEncoderSetPipeline(computepassencoder WGPUComputePassEncoder, pipeline WGPUComputePipeline)
 
-@[c: 'wgpuRenderBundleReference']
-fn wgpurenderbundlereference(renderbundle WGPURenderBundle)
+pub fn wgpucomputepassencodersetpipeline(computepassencoder WGPUComputePassEncoder, pipeline WGPUComputePipeline) {
+	C.wgpuComputePassEncoderSetPipeline(computepassencoder, pipeline)
+}
 
-@[c: 'wgpuRenderBundleRelease']
-fn wgpurenderbundlerelease(renderbundle WGPURenderBundle)
+fn C.wgpuComputePassEncoderReference(computepassencoder WGPUComputePassEncoder)
 
-@[c: 'wgpuRenderBundleEncoderDraw']
-fn wgpurenderbundleencoderdraw(renderbundleencoder WGPURenderBundleEncoder, vertexcount u32, instancecount u32, firstvertex u32, firstinstance u32)
+pub fn wgpucomputepassencoderreference(computepassencoder WGPUComputePassEncoder) {
+	C.wgpuComputePassEncoderReference(computepassencoder)
+}
 
-@[c: 'wgpuRenderBundleEncoderDrawIndexed']
-fn wgpurenderbundleencoderdrawindexed(renderbundleencoder WGPURenderBundleEncoder, indexcount u32, instancecount u32, firstindex u32, basevertex int, firstinstance u32)
+fn C.wgpuComputePassEncoderRelease(computepassencoder WGPUComputePassEncoder)
 
-@[c: 'wgpuRenderBundleEncoderDrawIndexedIndirect']
-fn wgpurenderbundleencoderdrawindexedindirect(renderbundleencoder WGPURenderBundleEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
+pub fn wgpucomputepassencoderrelease(computepassencoder WGPUComputePassEncoder) {
+	C.wgpuComputePassEncoderRelease(computepassencoder)
+}
 
-@[c: 'wgpuRenderBundleEncoderDrawIndirect']
-fn wgpurenderbundleencoderdrawindirect(renderbundleencoder WGPURenderBundleEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
+fn C.wgpuComputePipelineGetBindGroupLayout(computepipeline WGPUComputePipeline, groupindex u32) WGPUBindGroupLayout
 
-@[c: 'wgpuRenderBundleEncoderFinish']
-fn wgpurenderbundleencoderfinish(renderbundleencoder WGPURenderBundleEncoder, descriptor &WGPURenderBundleDescriptor) WGPURenderBundle
+pub fn wgpucomputepipelinegetbindgrouplayout(computepipeline WGPUComputePipeline, groupindex u32) WGPUBindGroupLayout {
+	return C.wgpuComputePipelineGetBindGroupLayout(computepipeline, groupindex)
+}
 
-@[c: 'wgpuRenderBundleEncoderInsertDebugMarker']
-fn wgpurenderbundleencoderinsertdebugmarker(renderbundleencoder WGPURenderBundleEncoder, markerlabel &i8)
+fn C.wgpuComputePipelineSetLabel(computepipeline WGPUComputePipeline, label &i8)
 
-@[c: 'wgpuRenderBundleEncoderPopDebugGroup']
-fn wgpurenderbundleencoderpopdebuggroup(renderbundleencoder WGPURenderBundleEncoder)
+pub fn wgpucomputepipelinesetlabel(computepipeline WGPUComputePipeline, label &i8) {
+	C.wgpuComputePipelineSetLabel(computepipeline, label)
+}
 
-@[c: 'wgpuRenderBundleEncoderPushDebugGroup']
-fn wgpurenderbundleencoderpushdebuggroup(renderbundleencoder WGPURenderBundleEncoder, grouplabel &i8)
+fn C.wgpuComputePipelineReference(computepipeline WGPUComputePipeline)
 
-@[c: 'wgpuRenderBundleEncoderSetBindGroup']
-fn wgpurenderbundleencodersetbindgroup(renderbundleencoder WGPURenderBundleEncoder, groupindex u32, group WGPUBindGroup, dynamicoffsetcount usize, dynamicoffsets &u32)
+pub fn wgpucomputepipelinereference(computepipeline WGPUComputePipeline) {
+	C.wgpuComputePipelineReference(computepipeline)
+}
 
-@[c: 'wgpuRenderBundleEncoderSetIndexBuffer']
-fn wgpurenderbundleencodersetindexbuffer(renderbundleencoder WGPURenderBundleEncoder, buffer WGPUBuffer, format WGPUIndexFormat, offset u64, size u64)
+fn C.wgpuComputePipelineRelease(computepipeline WGPUComputePipeline)
 
-@[c: 'wgpuRenderBundleEncoderSetLabel']
-fn wgpurenderbundleencodersetlabel(renderbundleencoder WGPURenderBundleEncoder, label &i8)
+pub fn wgpucomputepipelinerelease(computepipeline WGPUComputePipeline) {
+	C.wgpuComputePipelineRelease(computepipeline)
+}
 
-@[c: 'wgpuRenderBundleEncoderSetPipeline']
-fn wgpurenderbundleencodersetpipeline(renderbundleencoder WGPURenderBundleEncoder, pipeline WGPURenderPipeline)
+fn C.wgpuDeviceCreateBindGroup(device WGPUDevice, descriptor &WGPUBindGroupDescriptor) WGPUBindGroup
 
-@[c: 'wgpuRenderBundleEncoderSetVertexBuffer']
-fn wgpurenderbundleencodersetvertexbuffer(renderbundleencoder WGPURenderBundleEncoder, slot u32, buffer WGPUBuffer, offset u64, size u64)
+pub fn wgpudevicecreatebindgroup(device WGPUDevice, descriptor &WGPUBindGroupDescriptor) WGPUBindGroup {
+	return C.wgpuDeviceCreateBindGroup(device, descriptor)
+}
 
-@[c: 'wgpuRenderBundleEncoderReference']
-fn wgpurenderbundleencoderreference(renderbundleencoder WGPURenderBundleEncoder)
+fn C.wgpuDeviceCreateBindGroupLayout(device WGPUDevice, descriptor &WGPUBindGroupLayoutDescriptor) WGPUBindGroupLayout
 
-@[c: 'wgpuRenderBundleEncoderRelease']
-fn wgpurenderbundleencoderrelease(renderbundleencoder WGPURenderBundleEncoder)
+pub fn wgpudevicecreatebindgrouplayout(device WGPUDevice, descriptor &WGPUBindGroupLayoutDescriptor) WGPUBindGroupLayout {
+	return C.wgpuDeviceCreateBindGroupLayout(device, descriptor)
+}
 
-@[c: 'wgpuRenderPassEncoderBeginOcclusionQuery']
-fn wgpurenderpassencoderbeginocclusionquery(renderpassencoder WGPURenderPassEncoder, queryindex u32)
+fn C.wgpuDeviceCreateBuffer(device WGPUDevice, descriptor &WGPUBufferDescriptor) WGPUBuffer
 
-@[c: 'wgpuRenderPassEncoderDraw']
-fn wgpurenderpassencoderdraw(renderpassencoder WGPURenderPassEncoder, vertexcount u32, instancecount u32, firstvertex u32, firstinstance u32)
+pub fn wgpudevicecreatebuffer(device WGPUDevice, descriptor &WGPUBufferDescriptor) WGPUBuffer {
+	return C.wgpuDeviceCreateBuffer(device, descriptor)
+}
 
-@[c: 'wgpuRenderPassEncoderDrawIndexed']
-fn wgpurenderpassencoderdrawindexed(renderpassencoder WGPURenderPassEncoder, indexcount u32, instancecount u32, firstindex u32, basevertex int, firstinstance u32)
+fn C.wgpuDeviceCreateCommandEncoder(device WGPUDevice, descriptor &WGPUCommandEncoderDescriptor) WGPUCommandEncoder
 
-@[c: 'wgpuRenderPassEncoderDrawIndexedIndirect']
-fn wgpurenderpassencoderdrawindexedindirect(renderpassencoder WGPURenderPassEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
+pub fn wgpudevicecreatecommandencoder(device WGPUDevice, descriptor &WGPUCommandEncoderDescriptor) WGPUCommandEncoder {
+	return C.wgpuDeviceCreateCommandEncoder(device, descriptor)
+}
 
-@[c: 'wgpuRenderPassEncoderDrawIndirect']
-fn wgpurenderpassencoderdrawindirect(renderpassencoder WGPURenderPassEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
+fn C.wgpuDeviceCreateComputePipeline(device WGPUDevice, descriptor &WGPUComputePipelineDescriptor) WGPUComputePipeline
 
-@[c: 'wgpuRenderPassEncoderEnd']
-fn wgpurenderpassencoderend(renderpassencoder WGPURenderPassEncoder)
+pub fn wgpudevicecreatecomputepipeline(device WGPUDevice, descriptor &WGPUComputePipelineDescriptor) WGPUComputePipeline {
+	return C.wgpuDeviceCreateComputePipeline(device, descriptor)
+}
 
-@[c: 'wgpuRenderPassEncoderEndOcclusionQuery']
-fn wgpurenderpassencoderendocclusionquery(renderpassencoder WGPURenderPassEncoder)
+fn C.wgpuDeviceCreateComputePipelineAsync(device WGPUDevice, descriptor &WGPUComputePipelineDescriptor, callback WGPUCreateComputePipelineAsyncCallback, userdata voidptr)
 
-@[c: 'wgpuRenderPassEncoderExecuteBundles']
-fn wgpurenderpassencoderexecutebundles(renderpassencoder WGPURenderPassEncoder, bundlecount usize, bundles &WGPURenderBundle)
+pub fn wgpudevicecreatecomputepipelineasync(device WGPUDevice, descriptor &WGPUComputePipelineDescriptor, callback WGPUCreateComputePipelineAsyncCallback, userdata voidptr) {
+	C.wgpuDeviceCreateComputePipelineAsync(device, descriptor, callback, userdata)
+}
 
-@[c: 'wgpuRenderPassEncoderInsertDebugMarker']
-fn wgpurenderpassencoderinsertdebugmarker(renderpassencoder WGPURenderPassEncoder, markerlabel &i8)
+fn C.wgpuDeviceCreatePipelineLayout(device WGPUDevice, descriptor &WGPUPipelineLayoutDescriptor) WGPUPipelineLayout
 
-@[c: 'wgpuRenderPassEncoderPopDebugGroup']
-fn wgpurenderpassencoderpopdebuggroup(renderpassencoder WGPURenderPassEncoder)
+pub fn wgpudevicecreatepipelinelayout(device WGPUDevice, descriptor &WGPUPipelineLayoutDescriptor) WGPUPipelineLayout {
+	return C.wgpuDeviceCreatePipelineLayout(device, descriptor)
+}
 
-@[c: 'wgpuRenderPassEncoderPushDebugGroup']
-fn wgpurenderpassencoderpushdebuggroup(renderpassencoder WGPURenderPassEncoder, grouplabel &i8)
+fn C.wgpuDeviceCreateQuerySet(device WGPUDevice, descriptor &WGPUQuerySetDescriptor) WGPUQuerySet
 
-@[c: 'wgpuRenderPassEncoderSetBindGroup']
-fn wgpurenderpassencodersetbindgroup(renderpassencoder WGPURenderPassEncoder, groupindex u32, group WGPUBindGroup, dynamicoffsetcount usize, dynamicoffsets &u32)
+pub fn wgpudevicecreatequeryset(device WGPUDevice, descriptor &WGPUQuerySetDescriptor) WGPUQuerySet {
+	return C.wgpuDeviceCreateQuerySet(device, descriptor)
+}
 
-@[c: 'wgpuRenderPassEncoderSetBlendConstant']
-fn wgpurenderpassencodersetblendconstant(renderpassencoder WGPURenderPassEncoder, color &WGPUColor)
+fn C.wgpuDeviceCreateRenderBundleEncoder(device WGPUDevice, descriptor &WGPURenderBundleEncoderDescriptor) WGPURenderBundleEncoder
 
-@[c: 'wgpuRenderPassEncoderSetIndexBuffer']
-fn wgpurenderpassencodersetindexbuffer(renderpassencoder WGPURenderPassEncoder, buffer WGPUBuffer, format WGPUIndexFormat, offset u64, size u64)
+pub fn wgpudevicecreaterenderbundleencoder(device WGPUDevice, descriptor &WGPURenderBundleEncoderDescriptor) WGPURenderBundleEncoder {
+	return C.wgpuDeviceCreateRenderBundleEncoder(device, descriptor)
+}
 
-@[c: 'wgpuRenderPassEncoderSetLabel']
-fn wgpurenderpassencodersetlabel(renderpassencoder WGPURenderPassEncoder, label &i8)
+fn C.wgpuDeviceCreateRenderPipeline(device WGPUDevice, descriptor &WGPURenderPipelineDescriptor) WGPURenderPipeline
 
-@[c: 'wgpuRenderPassEncoderSetPipeline']
-fn wgpurenderpassencodersetpipeline(renderpassencoder WGPURenderPassEncoder, pipeline WGPURenderPipeline)
+pub fn wgpudevicecreaterenderpipeline(device WGPUDevice, descriptor &WGPURenderPipelineDescriptor) WGPURenderPipeline {
+	return C.wgpuDeviceCreateRenderPipeline(device, descriptor)
+}
 
-@[c: 'wgpuRenderPassEncoderSetScissorRect']
-fn wgpurenderpassencodersetscissorrect(renderpassencoder WGPURenderPassEncoder, x u32, y u32, width u32, height u32)
+fn C.wgpuDeviceCreateRenderPipelineAsync(device WGPUDevice, descriptor &WGPURenderPipelineDescriptor, callback WGPUCreateRenderPipelineAsyncCallback, userdata voidptr)
 
-@[c: 'wgpuRenderPassEncoderSetStencilReference']
-fn wgpurenderpassencodersetstencilreference(renderpassencoder WGPURenderPassEncoder, reference u32)
+pub fn wgpudevicecreaterenderpipelineasync(device WGPUDevice, descriptor &WGPURenderPipelineDescriptor, callback WGPUCreateRenderPipelineAsyncCallback, userdata voidptr) {
+	C.wgpuDeviceCreateRenderPipelineAsync(device, descriptor, callback, userdata)
+}
 
-@[c: 'wgpuRenderPassEncoderSetVertexBuffer']
-fn wgpurenderpassencodersetvertexbuffer(renderpassencoder WGPURenderPassEncoder, slot u32, buffer WGPUBuffer, offset u64, size u64)
+fn C.wgpuDeviceCreateSampler(device WGPUDevice, descriptor &WGPUSamplerDescriptor) WGPUSampler
 
-@[c: 'wgpuRenderPassEncoderSetViewport']
-fn wgpurenderpassencodersetviewport(renderpassencoder WGPURenderPassEncoder, x f32, y f32, width f32, height f32, mindepth f32, maxdepth f32)
+pub fn wgpudevicecreatesampler(device WGPUDevice, descriptor &WGPUSamplerDescriptor) WGPUSampler {
+	return C.wgpuDeviceCreateSampler(device, descriptor)
+}
 
-@[c: 'wgpuRenderPassEncoderReference']
-fn wgpurenderpassencoderreference(renderpassencoder WGPURenderPassEncoder)
+fn C.wgpuDeviceCreateShaderModule(device WGPUDevice, descriptor &WGPUShaderModuleDescriptor) WGPUShaderModule
 
-@[c: 'wgpuRenderPassEncoderRelease']
-fn wgpurenderpassencoderrelease(renderpassencoder WGPURenderPassEncoder)
+pub fn wgpudevicecreateshadermodule(device WGPUDevice, descriptor &WGPUShaderModuleDescriptor) WGPUShaderModule {
+	return C.wgpuDeviceCreateShaderModule(device, descriptor)
+}
 
-@[c: 'wgpuRenderPipelineGetBindGroupLayout']
-fn wgpurenderpipelinegetbindgrouplayout(renderpipeline WGPURenderPipeline, groupindex u32) WGPUBindGroupLayout
+fn C.wgpuDeviceCreateTexture(device WGPUDevice, descriptor &WGPUTextureDescriptor) WGPUTexture
 
-@[c: 'wgpuRenderPipelineSetLabel']
-fn wgpurenderpipelinesetlabel(renderpipeline WGPURenderPipeline, label &i8)
+pub fn wgpudevicecreatetexture(device WGPUDevice, descriptor &WGPUTextureDescriptor) WGPUTexture {
+	return C.wgpuDeviceCreateTexture(device, descriptor)
+}
 
-@[c: 'wgpuRenderPipelineReference']
-fn wgpurenderpipelinereference(renderpipeline WGPURenderPipeline)
+fn C.wgpuDeviceDestroy(device WGPUDevice)
 
-@[c: 'wgpuRenderPipelineRelease']
-fn wgpurenderpipelinerelease(renderpipeline WGPURenderPipeline)
+pub fn wgpudevicedestroy(device WGPUDevice) {
+	C.wgpuDeviceDestroy(device)
+}
 
-@[c: 'wgpuSamplerSetLabel']
-fn wgpusamplersetlabel(sampler WGPUSampler, label &i8)
+fn C.wgpuDeviceEnumerateFeatures(device WGPUDevice, features &WGPUFeatureName) usize
 
-@[c: 'wgpuSamplerReference']
-fn wgpusamplerreference(sampler WGPUSampler)
+pub fn wgpudeviceenumeratefeatures(device WGPUDevice, features &WGPUFeatureName) usize {
+	return C.wgpuDeviceEnumerateFeatures(device, features)
+}
 
-@[c: 'wgpuSamplerRelease']
-fn wgpusamplerrelease(sampler WGPUSampler)
+fn C.wgpuDeviceGetLimits(device WGPUDevice, limits &WGPUSupportedLimits) WGPUBool
 
-@[c: 'wgpuShaderModuleGetCompilationInfo']
-fn wgpushadermodulegetcompilationinfo(shadermodule WGPUShaderModule, callback WGPUCompilationInfoCallback, userdata voidptr)
+pub fn wgpudevicegetlimits(device WGPUDevice, limits &WGPUSupportedLimits) WGPUBool {
+	return C.wgpuDeviceGetLimits(device, limits)
+}
 
-@[c: 'wgpuShaderModuleSetLabel']
-fn wgpushadermodulesetlabel(shadermodule WGPUShaderModule, label &i8)
+fn C.wgpuDeviceGetQueue(device WGPUDevice) WGPUQueue
 
-@[c: 'wgpuShaderModuleReference']
-fn wgpushadermodulereference(shadermodule WGPUShaderModule)
+pub fn wgpudevicegetqueue(device WGPUDevice) WGPUQueue {
+	return C.wgpuDeviceGetQueue(device)
+}
 
-@[c: 'wgpuShaderModuleRelease']
-fn wgpushadermodulerelease(shadermodule WGPUShaderModule)
+fn C.wgpuDeviceHasFeature(device WGPUDevice, feature WGPUFeatureName) WGPUBool
 
-@[c: 'wgpuSurfaceConfigure']
-fn wgpusurfaceconfigure(surface WGPUSurface, config &WGPUSurfaceConfiguration)
+pub fn wgpudevicehasfeature(device WGPUDevice, feature WGPUFeatureName) WGPUBool {
+	return C.wgpuDeviceHasFeature(device, feature)
+}
 
-@[c: 'wgpuSurfaceGetCapabilities']
-fn wgpusurfacegetcapabilities(surface WGPUSurface, adapter WGPUAdapter, capabilities &WGPUSurfaceCapabilities)
+fn C.wgpuDevicePopErrorScope(device WGPUDevice, callback WGPUErrorCallback, userdata voidptr)
 
-@[c: 'wgpuSurfaceGetCurrentTexture']
-fn wgpusurfacegetcurrenttexture(surface WGPUSurface, surfacetexture &WGPUSurfaceTexture)
+pub fn wgpudevicepoperrorscope(device WGPUDevice, callback WGPUErrorCallback, userdata voidptr) {
+	C.wgpuDevicePopErrorScope(device, callback, userdata)
+}
 
-@[c: 'wgpuSurfaceGetPreferredFormat']
-fn wgpusurfacegetpreferredformat(surface WGPUSurface, adapter WGPUAdapter) WGPUTextureFormat
+fn C.wgpuDevicePushErrorScope(device WGPUDevice, filter WGPUErrorFilter)
 
-@[c: 'wgpuSurfacePresent']
-fn wgpusurfacepresent(surface WGPUSurface)
+pub fn wgpudevicepusherrorscope(device WGPUDevice, filter WGPUErrorFilter) {
+	C.wgpuDevicePushErrorScope(device, filter)
+}
 
-@[c: 'wgpuSurfaceUnconfigure']
-fn wgpusurfaceunconfigure(surface WGPUSurface)
+fn C.wgpuDeviceSetLabel(device WGPUDevice, label &i8)
 
-@[c: 'wgpuSurfaceReference']
-fn wgpusurfacereference(surface WGPUSurface)
+pub fn wgpudevicesetlabel(device WGPUDevice, label &i8) {
+	C.wgpuDeviceSetLabel(device, label)
+}
 
-@[c: 'wgpuSurfaceRelease']
-fn wgpusurfacerelease(surface WGPUSurface)
+fn C.wgpuDeviceSetUncapturedErrorCallback(device WGPUDevice, callback WGPUErrorCallback, userdata voidptr)
 
-@[c: 'wgpuSurfaceCapabilitiesFreeMembers']
-fn wgpusurfacecapabilitiesfreemembers(capabilities WGPUSurfaceCapabilities)
+pub fn wgpudevicesetuncapturederrorcallback(device WGPUDevice, callback WGPUErrorCallback, userdata voidptr) {
+	C.wgpuDeviceSetUncapturedErrorCallback(device, callback, userdata)
+}
 
-@[c: 'wgpuTextureCreateView']
-fn wgputexturecreateview(texture WGPUTexture, descriptor &WGPUTextureViewDescriptor) WGPUTextureView
+fn C.wgpuDeviceReference(device WGPUDevice)
 
-@[c: 'wgpuTextureDestroy']
-fn wgputexturedestroy(texture WGPUTexture)
+pub fn wgpudevicereference(device WGPUDevice) {
+	C.wgpuDeviceReference(device)
+}
 
-@[c: 'wgpuTextureGetDepthOrArrayLayers']
-fn wgputexturegetdepthorarraylayers(texture WGPUTexture) u32
+fn C.wgpuDeviceRelease(device WGPUDevice)
 
-@[c: 'wgpuTextureGetDimension']
-fn wgputexturegetdimension(texture WGPUTexture) WGPUTextureDimension
+pub fn wgpudevicerelease(device WGPUDevice) {
+	C.wgpuDeviceRelease(device)
+}
 
-@[c: 'wgpuTextureGetFormat']
-fn wgputexturegetformat(texture WGPUTexture) WGPUTextureFormat
+fn C.wgpuInstanceCreateSurface(instance WGPUInstance, descriptor &WGPUSurfaceDescriptor) WGPUSurface
 
-@[c: 'wgpuTextureGetHeight']
-fn wgputexturegetheight(texture WGPUTexture) u32
+pub fn wgpuinstancecreatesurface(instance WGPUInstance, descriptor &WGPUSurfaceDescriptor) WGPUSurface {
+	return C.wgpuInstanceCreateSurface(instance, descriptor)
+}
 
-@[c: 'wgpuTextureGetMipLevelCount']
-fn wgputexturegetmiplevelcount(texture WGPUTexture) u32
+fn C.wgpuInstanceProcessEvents(instance WGPUInstance)
 
-@[c: 'wgpuTextureGetSampleCount']
-fn wgputexturegetsamplecount(texture WGPUTexture) u32
+pub fn wgpuinstanceprocessevents(instance WGPUInstance) {
+	C.wgpuInstanceProcessEvents(instance)
+}
 
-@[c: 'wgpuTextureGetUsage']
-fn wgputexturegetusage(texture WGPUTexture) WGPUTextureUsageFlags
+fn C.wgpuInstanceRequestAdapter(instance WGPUInstance, options &WGPURequestAdapterOptions, callback WGPURequestAdapterCallback, userdata voidptr)
 
-@[c: 'wgpuTextureGetWidth']
-fn wgputexturegetwidth(texture WGPUTexture) u32
+pub fn wgpuinstancerequestadapter(instance WGPUInstance, options &WGPURequestAdapterOptions, callback WGPURequestAdapterCallback, userdata voidptr) {
+	C.wgpuInstanceRequestAdapter(instance, options, callback, userdata)
+}
 
-@[c: 'wgpuTextureSetLabel']
-fn wgputexturesetlabel(texture WGPUTexture, label &i8)
+fn C.wgpuInstanceReference(instance WGPUInstance)
 
-@[c: 'wgpuTextureReference']
-fn wgputexturereference(texture WGPUTexture)
+pub fn wgpuinstancereference(instance WGPUInstance) {
+	C.wgpuInstanceReference(instance)
+}
 
-@[c: 'wgpuTextureRelease']
-fn wgputexturerelease(texture WGPUTexture)
+fn C.wgpuInstanceRelease(instance WGPUInstance)
 
-@[c: 'wgpuTextureViewSetLabel']
-fn wgputextureviewsetlabel(textureview WGPUTextureView, label &i8)
+pub fn wgpuinstancerelease(instance WGPUInstance) {
+	C.wgpuInstanceRelease(instance)
+}
 
-@[c: 'wgpuTextureViewReference']
-fn wgputextureviewreference(textureview WGPUTextureView)
+fn C.wgpuPipelineLayoutSetLabel(pipelinelayout WGPUPipelineLayout, label &i8)
 
-@[c: 'wgpuTextureViewRelease']
-fn wgputextureviewrelease(textureview WGPUTextureView)
+pub fn wgpupipelinelayoutsetlabel(pipelinelayout WGPUPipelineLayout, label &i8) {
+	C.wgpuPipelineLayoutSetLabel(pipelinelayout, label)
+}
+
+fn C.wgpuPipelineLayoutReference(pipelinelayout WGPUPipelineLayout)
+
+pub fn wgpupipelinelayoutreference(pipelinelayout WGPUPipelineLayout) {
+	C.wgpuPipelineLayoutReference(pipelinelayout)
+}
+
+fn C.wgpuPipelineLayoutRelease(pipelinelayout WGPUPipelineLayout)
+
+pub fn wgpupipelinelayoutrelease(pipelinelayout WGPUPipelineLayout) {
+	C.wgpuPipelineLayoutRelease(pipelinelayout)
+}
+
+fn C.wgpuQuerySetDestroy(queryset WGPUQuerySet)
+
+pub fn wgpuquerysetdestroy(queryset WGPUQuerySet) {
+	C.wgpuQuerySetDestroy(queryset)
+}
+
+fn C.wgpuQuerySetGetCount(queryset WGPUQuerySet) u32
+
+pub fn wgpuquerysetgetcount(queryset WGPUQuerySet) u32 {
+	return C.wgpuQuerySetGetCount(queryset)
+}
+
+fn C.wgpuQuerySetGetType(queryset WGPUQuerySet) WGPUQueryType
+
+pub fn wgpuquerysetgettype(queryset WGPUQuerySet) WGPUQueryType {
+	return C.wgpuQuerySetGetType(queryset)
+}
+
+fn C.wgpuQuerySetSetLabel(queryset WGPUQuerySet, label &i8)
+
+pub fn wgpuquerysetsetlabel(queryset WGPUQuerySet, label &i8) {
+	C.wgpuQuerySetSetLabel(queryset, label)
+}
+
+fn C.wgpuQuerySetReference(queryset WGPUQuerySet)
+
+pub fn wgpuquerysetreference(queryset WGPUQuerySet) {
+	C.wgpuQuerySetReference(queryset)
+}
+
+fn C.wgpuQuerySetRelease(queryset WGPUQuerySet)
+
+pub fn wgpuquerysetrelease(queryset WGPUQuerySet) {
+	C.wgpuQuerySetRelease(queryset)
+}
+
+fn C.wgpuQueueOnSubmittedWorkDone(queue WGPUQueue, callback WGPUQueueWorkDoneCallback, userdata voidptr)
+
+pub fn wgpuqueueonsubmittedworkdone(queue WGPUQueue, callback WGPUQueueWorkDoneCallback, userdata voidptr) {
+	C.wgpuQueueOnSubmittedWorkDone(queue, callback, userdata)
+}
+
+fn C.wgpuQueueSetLabel(queue WGPUQueue, label &i8)
+
+pub fn wgpuqueuesetlabel(queue WGPUQueue, label &i8) {
+	C.wgpuQueueSetLabel(queue, label)
+}
+
+fn C.wgpuQueueSubmit(queue WGPUQueue, commandcount usize, commands &WGPUCommandBuffer)
+
+pub fn wgpuqueuesubmit(queue WGPUQueue, commandcount usize, commands &WGPUCommandBuffer) {
+	C.wgpuQueueSubmit(queue, commandcount, commands)
+}
+
+fn C.wgpuQueueWriteBuffer(queue WGPUQueue, buffer WGPUBuffer, bufferoffset u64, data voidptr, size usize)
+
+pub fn wgpuqueuewritebuffer(queue WGPUQueue, buffer WGPUBuffer, bufferoffset u64, data voidptr, size usize) {
+	C.wgpuQueueWriteBuffer(queue, buffer, bufferoffset, data, size)
+}
+
+fn C.wgpuQueueWriteTexture(queue WGPUQueue, destination &WGPUImageCopyTexture, data voidptr, datasize usize, datalayout &WGPUTextureDataLayout, writesize &WGPUExtent3D)
+
+pub fn wgpuqueuewritetexture(queue WGPUQueue, destination &WGPUImageCopyTexture, data voidptr, datasize usize, datalayout &WGPUTextureDataLayout, writesize &WGPUExtent3D) {
+	C.wgpuQueueWriteTexture(queue, destination, data, datasize, datalayout, writesize)
+}
+
+fn C.wgpuQueueReference(queue WGPUQueue)
+
+pub fn wgpuqueuereference(queue WGPUQueue) {
+	C.wgpuQueueReference(queue)
+}
+
+fn C.wgpuQueueRelease(queue WGPUQueue)
+
+pub fn wgpuqueuerelease(queue WGPUQueue) {
+	C.wgpuQueueRelease(queue)
+}
+
+fn C.wgpuRenderBundleSetLabel(renderbundle WGPURenderBundle, label &i8)
+
+pub fn wgpurenderbundlesetlabel(renderbundle WGPURenderBundle, label &i8) {
+	C.wgpuRenderBundleSetLabel(renderbundle, label)
+}
+
+fn C.wgpuRenderBundleReference(renderbundle WGPURenderBundle)
+
+pub fn wgpurenderbundlereference(renderbundle WGPURenderBundle) {
+	C.wgpuRenderBundleReference(renderbundle)
+}
+
+fn C.wgpuRenderBundleRelease(renderbundle WGPURenderBundle)
+
+pub fn wgpurenderbundlerelease(renderbundle WGPURenderBundle) {
+	C.wgpuRenderBundleRelease(renderbundle)
+}
+
+fn C.wgpuRenderBundleEncoderDraw(renderbundleencoder WGPURenderBundleEncoder, vertexcount u32, instancecount u32, firstvertex u32, firstinstance u32)
+
+pub fn wgpurenderbundleencoderdraw(renderbundleencoder WGPURenderBundleEncoder, vertexcount u32, instancecount u32, firstvertex u32, firstinstance u32) {
+	C.wgpuRenderBundleEncoderDraw(renderbundleencoder, vertexcount, instancecount, firstvertex,
+		firstinstance)
+}
+
+fn C.wgpuRenderBundleEncoderDrawIndexed(renderbundleencoder WGPURenderBundleEncoder, indexcount u32, instancecount u32, firstindex u32, basevertex int, firstinstance u32)
+
+pub fn wgpurenderbundleencoderdrawindexed(renderbundleencoder WGPURenderBundleEncoder, indexcount u32, instancecount u32, firstindex u32, basevertex int, firstinstance u32) {
+	C.wgpuRenderBundleEncoderDrawIndexed(renderbundleencoder, indexcount, instancecount,
+		firstindex, basevertex, firstinstance)
+}
+
+fn C.wgpuRenderBundleEncoderDrawIndexedIndirect(renderbundleencoder WGPURenderBundleEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
+
+pub fn wgpurenderbundleencoderdrawindexedindirect(renderbundleencoder WGPURenderBundleEncoder, indirectbuffer WGPUBuffer, indirectoffset u64) {
+	C.wgpuRenderBundleEncoderDrawIndexedIndirect(renderbundleencoder, indirectbuffer,
+		indirectoffset)
+}
+
+fn C.wgpuRenderBundleEncoderDrawIndirect(renderbundleencoder WGPURenderBundleEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
+
+pub fn wgpurenderbundleencoderdrawindirect(renderbundleencoder WGPURenderBundleEncoder, indirectbuffer WGPUBuffer, indirectoffset u64) {
+	C.wgpuRenderBundleEncoderDrawIndirect(renderbundleencoder, indirectbuffer, indirectoffset)
+}
+
+fn C.wgpuRenderBundleEncoderFinish(renderbundleencoder WGPURenderBundleEncoder, descriptor &WGPURenderBundleDescriptor) WGPURenderBundle
+
+pub fn wgpurenderbundleencoderfinish(renderbundleencoder WGPURenderBundleEncoder, descriptor &WGPURenderBundleDescriptor) WGPURenderBundle {
+	return C.wgpuRenderBundleEncoderFinish(renderbundleencoder, descriptor)
+}
+
+fn C.wgpuRenderBundleEncoderInsertDebugMarker(renderbundleencoder WGPURenderBundleEncoder, markerlabel &i8)
+
+pub fn wgpurenderbundleencoderinsertdebugmarker(renderbundleencoder WGPURenderBundleEncoder, markerlabel &i8) {
+	C.wgpuRenderBundleEncoderInsertDebugMarker(renderbundleencoder, markerlabel)
+}
+
+fn C.wgpuRenderBundleEncoderPopDebugGroup(renderbundleencoder WGPURenderBundleEncoder)
+
+pub fn wgpurenderbundleencoderpopdebuggroup(renderbundleencoder WGPURenderBundleEncoder) {
+	C.wgpuRenderBundleEncoderPopDebugGroup(renderbundleencoder)
+}
+
+fn C.wgpuRenderBundleEncoderPushDebugGroup(renderbundleencoder WGPURenderBundleEncoder, grouplabel &i8)
+
+pub fn wgpurenderbundleencoderpushdebuggroup(renderbundleencoder WGPURenderBundleEncoder, grouplabel &i8) {
+	C.wgpuRenderBundleEncoderPushDebugGroup(renderbundleencoder, grouplabel)
+}
+
+fn C.wgpuRenderBundleEncoderSetBindGroup(renderbundleencoder WGPURenderBundleEncoder, groupindex u32, group WGPUBindGroup, dynamicoffsetcount usize, dynamicoffsets &u32)
+
+pub fn wgpurenderbundleencodersetbindgroup(renderbundleencoder WGPURenderBundleEncoder, groupindex u32, group WGPUBindGroup, dynamicoffsetcount usize, dynamicoffsets &u32) {
+	C.wgpuRenderBundleEncoderSetBindGroup(renderbundleencoder, groupindex, group, dynamicoffsetcount,
+		dynamicoffsets)
+}
+
+fn C.wgpuRenderBundleEncoderSetIndexBuffer(renderbundleencoder WGPURenderBundleEncoder, buffer WGPUBuffer, format WGPUIndexFormat, offset u64, size u64)
+
+pub fn wgpurenderbundleencodersetindexbuffer(renderbundleencoder WGPURenderBundleEncoder, buffer WGPUBuffer, format WGPUIndexFormat, offset u64, size u64) {
+	C.wgpuRenderBundleEncoderSetIndexBuffer(renderbundleencoder, buffer, format, offset,
+		size)
+}
+
+fn C.wgpuRenderBundleEncoderSetLabel(renderbundleencoder WGPURenderBundleEncoder, label &i8)
+
+pub fn wgpurenderbundleencodersetlabel(renderbundleencoder WGPURenderBundleEncoder, label &i8) {
+	C.wgpuRenderBundleEncoderSetLabel(renderbundleencoder, label)
+}
+
+fn C.wgpuRenderBundleEncoderSetPipeline(renderbundleencoder WGPURenderBundleEncoder, pipeline WGPURenderPipeline)
+
+pub fn wgpurenderbundleencodersetpipeline(renderbundleencoder WGPURenderBundleEncoder, pipeline WGPURenderPipeline) {
+	C.wgpuRenderBundleEncoderSetPipeline(renderbundleencoder, pipeline)
+}
+
+fn C.wgpuRenderBundleEncoderSetVertexBuffer(renderbundleencoder WGPURenderBundleEncoder, slot u32, buffer WGPUBuffer, offset u64, size u64)
+
+pub fn wgpurenderbundleencodersetvertexbuffer(renderbundleencoder WGPURenderBundleEncoder, slot u32, buffer WGPUBuffer, offset u64, size u64) {
+	C.wgpuRenderBundleEncoderSetVertexBuffer(renderbundleencoder, slot, buffer, offset,
+		size)
+}
+
+fn C.wgpuRenderBundleEncoderReference(renderbundleencoder WGPURenderBundleEncoder)
+
+pub fn wgpurenderbundleencoderreference(renderbundleencoder WGPURenderBundleEncoder) {
+	C.wgpuRenderBundleEncoderReference(renderbundleencoder)
+}
+
+fn C.wgpuRenderBundleEncoderRelease(renderbundleencoder WGPURenderBundleEncoder)
+
+pub fn wgpurenderbundleencoderrelease(renderbundleencoder WGPURenderBundleEncoder) {
+	C.wgpuRenderBundleEncoderRelease(renderbundleencoder)
+}
+
+fn C.wgpuRenderPassEncoderBeginOcclusionQuery(renderpassencoder WGPURenderPassEncoder, queryindex u32)
+
+pub fn wgpurenderpassencoderbeginocclusionquery(renderpassencoder WGPURenderPassEncoder, queryindex u32) {
+	C.wgpuRenderPassEncoderBeginOcclusionQuery(renderpassencoder, queryindex)
+}
+
+fn C.wgpuRenderPassEncoderDraw(renderpassencoder WGPURenderPassEncoder, vertexcount u32, instancecount u32, firstvertex u32, firstinstance u32)
+
+pub fn wgpurenderpassencoderdraw(renderpassencoder WGPURenderPassEncoder, vertexcount u32, instancecount u32, firstvertex u32, firstinstance u32) {
+	C.wgpuRenderPassEncoderDraw(renderpassencoder, vertexcount, instancecount, firstvertex,
+		firstinstance)
+}
+
+fn C.wgpuRenderPassEncoderDrawIndexed(renderpassencoder WGPURenderPassEncoder, indexcount u32, instancecount u32, firstindex u32, basevertex int, firstinstance u32)
+
+pub fn wgpurenderpassencoderdrawindexed(renderpassencoder WGPURenderPassEncoder, indexcount u32, instancecount u32, firstindex u32, basevertex int, firstinstance u32) {
+	C.wgpuRenderPassEncoderDrawIndexed(renderpassencoder, indexcount, instancecount, firstindex,
+		basevertex, firstinstance)
+}
+
+fn C.wgpuRenderPassEncoderDrawIndexedIndirect(renderpassencoder WGPURenderPassEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
+
+pub fn wgpurenderpassencoderdrawindexedindirect(renderpassencoder WGPURenderPassEncoder, indirectbuffer WGPUBuffer, indirectoffset u64) {
+	C.wgpuRenderPassEncoderDrawIndexedIndirect(renderpassencoder, indirectbuffer, indirectoffset)
+}
+
+fn C.wgpuRenderPassEncoderDrawIndirect(renderpassencoder WGPURenderPassEncoder, indirectbuffer WGPUBuffer, indirectoffset u64)
+
+pub fn wgpurenderpassencoderdrawindirect(renderpassencoder WGPURenderPassEncoder, indirectbuffer WGPUBuffer, indirectoffset u64) {
+	C.wgpuRenderPassEncoderDrawIndirect(renderpassencoder, indirectbuffer, indirectoffset)
+}
+
+fn C.wgpuRenderPassEncoderEnd(renderpassencoder WGPURenderPassEncoder)
+
+pub fn wgpurenderpassencoderend(renderpassencoder WGPURenderPassEncoder) {
+	C.wgpuRenderPassEncoderEnd(renderpassencoder)
+}
+
+fn C.wgpuRenderPassEncoderEndOcclusionQuery(renderpassencoder WGPURenderPassEncoder)
+
+pub fn wgpurenderpassencoderendocclusionquery(renderpassencoder WGPURenderPassEncoder) {
+	C.wgpuRenderPassEncoderEndOcclusionQuery(renderpassencoder)
+}
+
+fn C.wgpuRenderPassEncoderExecuteBundles(renderpassencoder WGPURenderPassEncoder, bundlecount usize, bundles &WGPURenderBundle)
+
+pub fn wgpurenderpassencoderexecutebundles(renderpassencoder WGPURenderPassEncoder, bundlecount usize, bundles &WGPURenderBundle) {
+	C.wgpuRenderPassEncoderExecuteBundles(renderpassencoder, bundlecount, bundles)
+}
+
+fn C.wgpuRenderPassEncoderInsertDebugMarker(renderpassencoder WGPURenderPassEncoder, markerlabel &i8)
+
+pub fn wgpurenderpassencoderinsertdebugmarker(renderpassencoder WGPURenderPassEncoder, markerlabel &i8) {
+	C.wgpuRenderPassEncoderInsertDebugMarker(renderpassencoder, markerlabel)
+}
+
+fn C.wgpuRenderPassEncoderPopDebugGroup(renderpassencoder WGPURenderPassEncoder)
+
+pub fn wgpurenderpassencoderpopdebuggroup(renderpassencoder WGPURenderPassEncoder) {
+	C.wgpuRenderPassEncoderPopDebugGroup(renderpassencoder)
+}
+
+fn C.wgpuRenderPassEncoderPushDebugGroup(renderpassencoder WGPURenderPassEncoder, grouplabel &i8)
+
+pub fn wgpurenderpassencoderpushdebuggroup(renderpassencoder WGPURenderPassEncoder, grouplabel &i8) {
+	C.wgpuRenderPassEncoderPushDebugGroup(renderpassencoder, grouplabel)
+}
+
+fn C.wgpuRenderPassEncoderSetBindGroup(renderpassencoder WGPURenderPassEncoder, groupindex u32, group WGPUBindGroup, dynamicoffsetcount usize, dynamicoffsets &u32)
+
+pub fn wgpurenderpassencodersetbindgroup(renderpassencoder WGPURenderPassEncoder, groupindex u32, group WGPUBindGroup, dynamicoffsetcount usize, dynamicoffsets &u32) {
+	C.wgpuRenderPassEncoderSetBindGroup(renderpassencoder, groupindex, group, dynamicoffsetcount,
+		dynamicoffsets)
+}
+
+fn C.wgpuRenderPassEncoderSetBlendConstant(renderpassencoder WGPURenderPassEncoder, color &WGPUColor)
+
+pub fn wgpurenderpassencodersetblendconstant(renderpassencoder WGPURenderPassEncoder, color &WGPUColor) {
+	C.wgpuRenderPassEncoderSetBlendConstant(renderpassencoder, color)
+}
+
+fn C.wgpuRenderPassEncoderSetIndexBuffer(renderpassencoder WGPURenderPassEncoder, buffer WGPUBuffer, format WGPUIndexFormat, offset u64, size u64)
+
+pub fn wgpurenderpassencodersetindexbuffer(renderpassencoder WGPURenderPassEncoder, buffer WGPUBuffer, format WGPUIndexFormat, offset u64, size u64) {
+	C.wgpuRenderPassEncoderSetIndexBuffer(renderpassencoder, buffer, format, offset, size)
+}
+
+fn C.wgpuRenderPassEncoderSetLabel(renderpassencoder WGPURenderPassEncoder, label &i8)
+
+pub fn wgpurenderpassencodersetlabel(renderpassencoder WGPURenderPassEncoder, label &i8) {
+	C.wgpuRenderPassEncoderSetLabel(renderpassencoder, label)
+}
+
+fn C.wgpuRenderPassEncoderSetPipeline(renderpassencoder WGPURenderPassEncoder, pipeline WGPURenderPipeline)
+
+pub fn wgpurenderpassencodersetpipeline(renderpassencoder WGPURenderPassEncoder, pipeline WGPURenderPipeline) {
+	C.wgpuRenderPassEncoderSetPipeline(renderpassencoder, pipeline)
+}
+
+fn C.wgpuRenderPassEncoderSetScissorRect(renderpassencoder WGPURenderPassEncoder, x u32, y u32, width u32, height u32)
+
+pub fn wgpurenderpassencodersetscissorrect(renderpassencoder WGPURenderPassEncoder, x u32, y u32, width u32, height u32) {
+	C.wgpuRenderPassEncoderSetScissorRect(renderpassencoder, x, y, width, height)
+}
+
+fn C.wgpuRenderPassEncoderSetStencilReference(renderpassencoder WGPURenderPassEncoder, reference u32)
+
+pub fn wgpurenderpassencodersetstencilreference(renderpassencoder WGPURenderPassEncoder, reference u32) {
+	C.wgpuRenderPassEncoderSetStencilReference(renderpassencoder, reference)
+}
+
+fn C.wgpuRenderPassEncoderSetVertexBuffer(renderpassencoder WGPURenderPassEncoder, slot u32, buffer WGPUBuffer, offset u64, size u64)
+
+pub fn wgpurenderpassencodersetvertexbuffer(renderpassencoder WGPURenderPassEncoder, slot u32, buffer WGPUBuffer, offset u64, size u64) {
+	C.wgpuRenderPassEncoderSetVertexBuffer(renderpassencoder, slot, buffer, offset, size)
+}
+
+fn C.wgpuRenderPassEncoderSetViewport(renderpassencoder WGPURenderPassEncoder, x f32, y f32, width f32, height f32, mindepth f32, maxdepth f32)
+
+pub fn wgpurenderpassencodersetviewport(renderpassencoder WGPURenderPassEncoder, x f32, y f32, width f32, height f32, mindepth f32, maxdepth f32) {
+	C.wgpuRenderPassEncoderSetViewport(renderpassencoder, x, y, width, height, mindepth,
+		maxdepth)
+}
+
+fn C.wgpuRenderPassEncoderReference(renderpassencoder WGPURenderPassEncoder)
+
+pub fn wgpurenderpassencoderreference(renderpassencoder WGPURenderPassEncoder) {
+	C.wgpuRenderPassEncoderReference(renderpassencoder)
+}
+
+fn C.wgpuRenderPassEncoderRelease(renderpassencoder WGPURenderPassEncoder)
+
+pub fn wgpurenderpassencoderrelease(renderpassencoder WGPURenderPassEncoder) {
+	C.wgpuRenderPassEncoderRelease(renderpassencoder)
+}
+
+fn C.wgpuRenderPipelineGetBindGroupLayout(renderpipeline WGPURenderPipeline, groupindex u32) WGPUBindGroupLayout
+
+pub fn wgpurenderpipelinegetbindgrouplayout(renderpipeline WGPURenderPipeline, groupindex u32) WGPUBindGroupLayout {
+	return C.wgpuRenderPipelineGetBindGroupLayout(renderpipeline, groupindex)
+}
+
+fn C.wgpuRenderPipelineSetLabel(renderpipeline WGPURenderPipeline, label &i8)
+
+pub fn wgpurenderpipelinesetlabel(renderpipeline WGPURenderPipeline, label &i8) {
+	C.wgpuRenderPipelineSetLabel(renderpipeline, label)
+}
+
+fn C.wgpuRenderPipelineReference(renderpipeline WGPURenderPipeline)
+
+pub fn wgpurenderpipelinereference(renderpipeline WGPURenderPipeline) {
+	C.wgpuRenderPipelineReference(renderpipeline)
+}
+
+fn C.wgpuRenderPipelineRelease(renderpipeline WGPURenderPipeline)
+
+pub fn wgpurenderpipelinerelease(renderpipeline WGPURenderPipeline) {
+	C.wgpuRenderPipelineRelease(renderpipeline)
+}
+
+fn C.wgpuSamplerSetLabel(sampler WGPUSampler, label &i8)
+
+pub fn wgpusamplersetlabel(sampler WGPUSampler, label &i8) {
+	C.wgpuSamplerSetLabel(sampler, label)
+}
+
+fn C.wgpuSamplerReference(sampler WGPUSampler)
+
+pub fn wgpusamplerreference(sampler WGPUSampler) {
+	C.wgpuSamplerReference(sampler)
+}
+
+fn C.wgpuSamplerRelease(sampler WGPUSampler)
+
+pub fn wgpusamplerrelease(sampler WGPUSampler) {
+	C.wgpuSamplerRelease(sampler)
+}
+
+fn C.wgpuShaderModuleGetCompilationInfo(shadermodule WGPUShaderModule, callback WGPUCompilationInfoCallback, userdata voidptr)
+
+pub fn wgpushadermodulegetcompilationinfo(shadermodule WGPUShaderModule, callback WGPUCompilationInfoCallback, userdata voidptr) {
+	C.wgpuShaderModuleGetCompilationInfo(shadermodule, callback, userdata)
+}
+
+fn C.wgpuShaderModuleSetLabel(shadermodule WGPUShaderModule, label &i8)
+
+pub fn wgpushadermodulesetlabel(shadermodule WGPUShaderModule, label &i8) {
+	C.wgpuShaderModuleSetLabel(shadermodule, label)
+}
+
+fn C.wgpuShaderModuleReference(shadermodule WGPUShaderModule)
+
+pub fn wgpushadermodulereference(shadermodule WGPUShaderModule) {
+	C.wgpuShaderModuleReference(shadermodule)
+}
+
+fn C.wgpuShaderModuleRelease(shadermodule WGPUShaderModule)
+
+pub fn wgpushadermodulerelease(shadermodule WGPUShaderModule) {
+	C.wgpuShaderModuleRelease(shadermodule)
+}
+
+fn C.wgpuSurfaceConfigure(surface WGPUSurface, config &WGPUSurfaceConfiguration)
+
+pub fn wgpusurfaceconfigure(surface WGPUSurface, config &WGPUSurfaceConfiguration) {
+	C.wgpuSurfaceConfigure(surface, config)
+}
+
+fn C.wgpuSurfaceGetCapabilities(surface WGPUSurface, adapter WGPUAdapter, capabilities &WGPUSurfaceCapabilities)
+
+pub fn wgpusurfacegetcapabilities(surface WGPUSurface, adapter WGPUAdapter, capabilities &WGPUSurfaceCapabilities) {
+	C.wgpuSurfaceGetCapabilities(surface, adapter, capabilities)
+}
+
+fn C.wgpuSurfaceGetCurrentTexture(surface WGPUSurface, surfacetexture &WGPUSurfaceTexture)
+
+pub fn wgpusurfacegetcurrenttexture(surface WGPUSurface, surfacetexture &WGPUSurfaceTexture) {
+	C.wgpuSurfaceGetCurrentTexture(surface, surfacetexture)
+}
+
+fn C.wgpuSurfaceGetPreferredFormat(surface WGPUSurface, adapter WGPUAdapter) WGPUTextureFormat
+
+pub fn wgpusurfacegetpreferredformat(surface WGPUSurface, adapter WGPUAdapter) WGPUTextureFormat {
+	return C.wgpuSurfaceGetPreferredFormat(surface, adapter)
+}
+
+fn C.wgpuSurfacePresent(surface WGPUSurface)
+
+pub fn wgpusurfacepresent(surface WGPUSurface) {
+	C.wgpuSurfacePresent(surface)
+}
+
+fn C.wgpuSurfaceUnconfigure(surface WGPUSurface)
+
+pub fn wgpusurfaceunconfigure(surface WGPUSurface) {
+	C.wgpuSurfaceUnconfigure(surface)
+}
+
+fn C.wgpuSurfaceReference(surface WGPUSurface)
+
+pub fn wgpusurfacereference(surface WGPUSurface) {
+	C.wgpuSurfaceReference(surface)
+}
+
+fn C.wgpuSurfaceRelease(surface WGPUSurface)
+
+pub fn wgpusurfacerelease(surface WGPUSurface) {
+	C.wgpuSurfaceRelease(surface)
+}
+
+fn C.wgpuSurfaceCapabilitiesFreeMembers(capabilities WGPUSurfaceCapabilities)
+
+pub fn wgpusurfacecapabilitiesfreemembers(capabilities WGPUSurfaceCapabilities) {
+	C.wgpuSurfaceCapabilitiesFreeMembers(capabilities)
+}
+
+fn C.wgpuTextureCreateView(texture WGPUTexture, descriptor &WGPUTextureViewDescriptor) WGPUTextureView
+
+pub fn wgputexturecreateview(texture WGPUTexture, descriptor &WGPUTextureViewDescriptor) WGPUTextureView {
+	return C.wgpuTextureCreateView(texture, descriptor)
+}
+
+fn C.wgpuTextureDestroy(texture WGPUTexture)
+
+pub fn wgputexturedestroy(texture WGPUTexture) {
+	C.wgpuTextureDestroy(texture)
+}
+
+fn C.wgpuTextureGetDepthOrArrayLayers(texture WGPUTexture) u32
+
+pub fn wgputexturegetdepthorarraylayers(texture WGPUTexture) u32 {
+	return C.wgpuTextureGetDepthOrArrayLayers(texture)
+}
+
+fn C.wgpuTextureGetDimension(texture WGPUTexture) WGPUTextureDimension
+
+pub fn wgputexturegetdimension(texture WGPUTexture) WGPUTextureDimension {
+	return C.wgpuTextureGetDimension(texture)
+}
+
+fn C.wgpuTextureGetFormat(texture WGPUTexture) WGPUTextureFormat
+
+pub fn wgputexturegetformat(texture WGPUTexture) WGPUTextureFormat {
+	return C.wgpuTextureGetFormat(texture)
+}
+
+fn C.wgpuTextureGetHeight(texture WGPUTexture) u32
+
+pub fn wgputexturegetheight(texture WGPUTexture) u32 {
+	return C.wgpuTextureGetHeight(texture)
+}
+
+fn C.wgpuTextureGetMipLevelCount(texture WGPUTexture) u32
+
+pub fn wgputexturegetmiplevelcount(texture WGPUTexture) u32 {
+	return C.wgpuTextureGetMipLevelCount(texture)
+}
+
+fn C.wgpuTextureGetSampleCount(texture WGPUTexture) u32
+
+pub fn wgputexturegetsamplecount(texture WGPUTexture) u32 {
+	return C.wgpuTextureGetSampleCount(texture)
+}
+
+fn C.wgpuTextureGetUsage(texture WGPUTexture) WGPUTextureUsageFlags
+
+pub fn wgputexturegetusage(texture WGPUTexture) WGPUTextureUsageFlags {
+	return C.wgpuTextureGetUsage(texture)
+}
+
+fn C.wgpuTextureGetWidth(texture WGPUTexture) u32
+
+pub fn wgputexturegetwidth(texture WGPUTexture) u32 {
+	return C.wgpuTextureGetWidth(texture)
+}
+
+fn C.wgpuTextureSetLabel(texture WGPUTexture, label &i8)
+
+pub fn wgputexturesetlabel(texture WGPUTexture, label &i8) {
+	C.wgpuTextureSetLabel(texture, label)
+}
+
+fn C.wgpuTextureReference(texture WGPUTexture)
+
+pub fn wgputexturereference(texture WGPUTexture) {
+	C.wgpuTextureReference(texture)
+}
+
+fn C.wgpuTextureRelease(texture WGPUTexture)
+
+pub fn wgputexturerelease(texture WGPUTexture) {
+	C.wgpuTextureRelease(texture)
+}
+
+fn C.wgpuTextureViewSetLabel(textureview WGPUTextureView, label &i8)
+
+pub fn wgputextureviewsetlabel(textureview WGPUTextureView, label &i8) {
+	C.wgpuTextureViewSetLabel(textureview, label)
+}
+
+fn C.wgpuTextureViewReference(textureview WGPUTextureView)
+
+pub fn wgputextureviewreference(textureview WGPUTextureView) {
+	C.wgpuTextureViewReference(textureview)
+}
+
+fn C.wgpuTextureViewRelease(textureview WGPUTextureView)
+
+pub fn wgputextureviewrelease(textureview WGPUTextureView) {
+	C.wgpuTextureViewRelease(textureview)
+}
