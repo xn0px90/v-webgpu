@@ -1,4 +1,7 @@
+@[translated]
 module webgpu
+
+//#include "webgpu.h"
 
 type Size_t = u32
 type Wchar_t = int
