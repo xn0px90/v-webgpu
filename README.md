@@ -1,4 +1,4 @@
 # v-webgpu
-webgpu wrapper c2v experiment 
+webgpu c2v experiment 
 
-WARNING::Pre-alpha
+WARNING::Pre-alpha::WARNING
