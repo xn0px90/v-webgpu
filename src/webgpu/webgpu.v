@@ -4,7 +4,8 @@ module webgpu
 
 type Size_t = u32
 type Wchar_t = int
-type WGPUFlags = u32
+
+// Type u32 = u32
 type WGPUBool = u32
 type WGPUAdapter = voidptr
 type WGPUBindGroup = voidptr
@@ -34,14 +35,14 @@ enum WGPUAdapterType {
 	wgpuadaptertype_integratedgpu = 1
 	wgpuadaptertype_cpu           = 2
 	wgpuadaptertype_unknown       = 3
-	wgpuadaptertype_force32       = 2147483647
+	wgpuadaptertype_force32       = 2147483646
 }
 
 enum WGPUAddressMode {
 	wgpuaddressmode_repeat       = 0
 	wgpuaddressmode_mirrorrepeat = 1
 	wgpuaddressmode_clamptoedge  = 2
-	wgpuaddressmode_force32      = 2147483647
+	wgpuaddressmode_force32      = 2147483646
 }
 
 enum WGPUBackendType {
@@ -54,7 +55,7 @@ enum WGPUBackendType {
 	wgpubackendtype_vulkan    = 6
 	wgpubackendtype_opengl    = 7
 	wgpubackendtype_opengles  = 8
-	wgpubackendtype_force32   = 2147483647
+	wgpubackendtype_force32   = 2147483646
 }
 
 enum WGPUBlendFactor {
@@ -71,7 +72,7 @@ enum WGPUBlendFactor {
 	wgpublendfactor_srcalphasaturated = 10
 	wgpublendfactor_constant          = 11
 	wgpublendfactor_oneminusconstant  = 12
-	wgpublendfactor_force32           = 2147483647
+	wgpublendfactor_force32           = 2147483646
 }
 
 enum WGPUBlendOperation {
@@ -80,7 +81,7 @@ enum WGPUBlendOperation {
 	wgpublendoperation_reversesubtract = 2
 	wgpublendoperation_min             = 3
 	wgpublendoperation_max             = 4
-	wgpublendoperation_force32         = 2147483647
+	wgpublendoperation_force32         = 2147483646
 }
 
 enum WGPUBufferBindingType {
@@ -88,7 +89,7 @@ enum WGPUBufferBindingType {
 	wgpubufferbindingtype_uniform         = 1
 	wgpubufferbindingtype_storage         = 2
 	wgpubufferbindingtype_readonlystorage = 3
-	wgpubufferbindingtype_force32         = 2147483647
+	wgpubufferbindingtype_force32         = 2147483646
 }
 
 enum WGPUBufferMapAsyncStatus {
@@ -101,14 +102,14 @@ enum WGPUBufferMapAsyncStatus {
 	wgpubuffermapasyncstatus_mappingalreadypending   = 6
 	wgpubuffermapasyncstatus_offsetoutofrange        = 7
 	wgpubuffermapasyncstatus_sizeoutofrange          = 8
-	wgpubuffermapasyncstatus_force32                 = 2147483647
+	wgpubuffermapasyncstatus_force32                 = 2147483646
 }
 
 enum WGPUBufferMapState {
 	wgpubuffermapstate_unmapped = 0
 	wgpubuffermapstate_pending  = 1
 	wgpubuffermapstate_mapped   = 2
-	wgpubuffermapstate_force32  = 2147483647
+	wgpubuffermapstate_force32  = 2147483646
 }
 
 enum WGPUCompareFunction {
@@ -121,7 +122,7 @@ enum WGPUCompareFunction {
 	wgpucomparefunction_equal        = 6
 	wgpucomparefunction_notequal     = 7
 	wgpucomparefunction_always       = 8
-	wgpucomparefunction_force32      = 2147483647
+	wgpucomparefunction_force32      = 2147483646
 }
 
 enum WGPUCompilationInfoRequestStatus {
@@ -129,14 +130,14 @@ enum WGPUCompilationInfoRequestStatus {
 	wgpucompilationinforequeststatus_error      = 1
 	wgpucompilationinforequeststatus_devicelost = 2
 	wgpucompilationinforequeststatus_unknown    = 3
-	wgpucompilationinforequeststatus_force32    = 2147483647
+	wgpucompilationinforequeststatus_force32    = 2147483646
 }
 
 enum WGPUCompilationMessageType {
 	wgpucompilationmessagetype_error   = 0
 	wgpucompilationmessagetype_warning = 1
 	wgpucompilationmessagetype_info    = 2
-	wgpucompilationmessagetype_force32 = 2147483647
+	wgpucompilationmessagetype_force32 = 2147483646
 }
 
 enum WGPUCompositeAlphaMode {
@@ -145,7 +146,7 @@ enum WGPUCompositeAlphaMode {
 	wgpucompositealphamode_premultiplied   = 2
 	wgpucompositealphamode_unpremultiplied = 3
 	wgpucompositealphamode_inherit         = 4
-	wgpucompositealphamode_force32         = 2147483647
+	wgpucompositealphamode_force32         = 2147483646
 }
 
 enum WGPUCreatePipelineAsyncStatus {
@@ -155,27 +156,27 @@ enum WGPUCreatePipelineAsyncStatus {
 	wgpucreatepipelineasyncstatus_devicelost      = 3
 	wgpucreatepipelineasyncstatus_devicedestroyed = 4
 	wgpucreatepipelineasyncstatus_unknown         = 5
-	wgpucreatepipelineasyncstatus_force32         = 2147483647
+	wgpucreatepipelineasyncstatus_force32         = 2147483646
 }
 
 enum WGPUCullMode {
 	wgpucullmode_none    = 0
 	wgpucullmode_front   = 1
 	wgpucullmode_back    = 2
-	wgpucullmode_force32 = 2147483647
+	wgpucullmode_force32 = 2147483646
 }
 
 enum WGPUDeviceLostReason {
 	wgpudevicelostreason_undefined = 0
 	wgpudevicelostreason_destroyed = 1
-	wgpudevicelostreason_force32   = 2147483647
+	wgpudevicelostreason_force32   = 2147483646
 }
 
 enum WGPUErrorFilter {
 	wgpuerrorfilter_validation  = 0
 	wgpuerrorfilter_outofmemory = 1
 	wgpuerrorfilter_internal    = 2
-	wgpuerrorfilter_force32     = 2147483647
+	wgpuerrorfilter_force32     = 2147483646
 }
 
 enum WGPUErrorType {
@@ -185,7 +186,7 @@ enum WGPUErrorType {
 	wgpuerrortype_internal    = 3
 	wgpuerrortype_unknown     = 4
 	wgpuerrortype_devicelost  = 5
-	wgpuerrortype_force32     = 2147483647
+	wgpuerrortype_force32     = 2147483646
 }
 
 enum WGPUFeatureName {
@@ -201,46 +202,46 @@ enum WGPUFeatureName {
 	wgpufeaturename_rg11b10ufloatrenderable = 9
 	wgpufeaturename_bgra8unormstorage       = 10
 	wgpufeaturename_float32filterable       = 11
-	wgpufeaturename_force32                 = 2147483647
+	wgpufeaturename_force32                 = 2147483646
 }
 
 enum WGPUFilterMode {
 	wgpufiltermode_nearest = 0
 	wgpufiltermode_linear  = 1
-	wgpufiltermode_force32 = 2147483647
+	wgpufiltermode_force32 = 2147483646
 }
 
 enum WGPUFrontFace {
 	wgpufrontface_ccw     = 0
 	wgpufrontface_cw      = 1
-	wgpufrontface_force32 = 2147483647
+	wgpufrontface_force32 = 2147483646
 }
 
 enum WGPUIndexFormat {
 	wgpuindexformat_undefined = 0
 	wgpuindexformat_uint16    = 1
 	wgpuindexformat_uint32    = 2
-	wgpuindexformat_force32   = 2147483647
+	wgpuindexformat_force32   = 2147483646
 }
 
 enum WGPULoadOp {
 	wgpuloadop_undefined = 0
 	wgpuloadop_clear     = 1
 	wgpuloadop_load      = 2
-	wgpuloadop_force32   = 2147483647
+	wgpuloadop_force32   = 2147483646
 }
 
 enum WGPUMipmapFilterMode {
 	wgpumipmapfiltermode_nearest = 0
 	wgpumipmapfiltermode_linear  = 1
-	wgpumipmapfiltermode_force32 = 2147483647
+	wgpumipmapfiltermode_force32 = 2147483646
 }
 
 enum WGPUPowerPreference {
 	wgpupowerpreference_undefined       = 0
 	wgpupowerpreference_lowpower        = 1
 	wgpupowerpreference_highperformance = 2
-	wgpupowerpreference_force32         = 2147483647
+	wgpupowerpreference_force32         = 2147483646
 }
 
 enum WGPUPresentMode {
@@ -248,7 +249,7 @@ enum WGPUPresentMode {
 	wgpupresentmode_fiforelaxed = 1
 	wgpupresentmode_immediate   = 2
 	wgpupresentmode_mailbox     = 3
-	wgpupresentmode_force32     = 2147483647
+	wgpupresentmode_force32     = 2147483646
 }
 
 enum WGPUPrimitiveTopology {
@@ -257,13 +258,13 @@ enum WGPUPrimitiveTopology {
 	wgpuprimitivetopology_linestrip     = 2
 	wgpuprimitivetopology_trianglelist  = 3
 	wgpuprimitivetopology_trianglestrip = 4
-	wgpuprimitivetopology_force32       = 2147483647
+	wgpuprimitivetopology_force32       = 2147483646
 }
 
 enum WGPUQueryType {
 	wgpuquerytype_occlusion = 0
 	wgpuquerytype_timestamp = 1
-	wgpuquerytype_force32   = 2147483647
+	wgpuquerytype_force32   = 2147483646
 }
 
 enum WGPUQueueWorkDoneStatus {
@@ -271,7 +272,7 @@ enum WGPUQueueWorkDoneStatus {
 	wgpuqueueworkdonestatus_error      = 1
 	wgpuqueueworkdonestatus_unknown    = 2
 	wgpuqueueworkdonestatus_devicelost = 3
-	wgpuqueueworkdonestatus_force32    = 2147483647
+	wgpuqueueworkdonestatus_force32    = 2147483646
 }
 
 enum WGPURequestAdapterStatus {
@@ -279,14 +280,14 @@ enum WGPURequestAdapterStatus {
 	wgpurequestadapterstatus_unavailable = 1
 	wgpurequestadapterstatus_error       = 2
 	wgpurequestadapterstatus_unknown     = 3
-	wgpurequestadapterstatus_force32     = 2147483647
+	wgpurequestadapterstatus_force32     = 2147483646
 }
 
 enum WGPURequestDeviceStatus {
 	wgpurequestdevicestatus_success = 0
 	wgpurequestdevicestatus_error   = 1
 	wgpurequestdevicestatus_unknown = 2
-	wgpurequestdevicestatus_force32 = 2147483647
+	wgpurequestdevicestatus_force32 = 2147483646
 }
 
 enum WGPUSType {
@@ -302,7 +303,7 @@ enum WGPUSType {
 	wgpustype_surfacedescriptorfromandroidnativewindow = 9
 	wgpustype_surfacedescriptorfromxcbwindow           = 10
 	wgpustype_renderpassdescriptormaxdrawcount         = 15
-	wgpustype_force32                                  = 2147483647
+	wgpustype_force32                                  = 2147483646
 }
 
 enum WGPUSamplerBindingType {
@@ -310,7 +311,7 @@ enum WGPUSamplerBindingType {
 	wgpusamplerbindingtype_filtering    = 1
 	wgpusamplerbindingtype_nonfiltering = 2
 	wgpusamplerbindingtype_comparison   = 3
-	wgpusamplerbindingtype_force32      = 2147483647
+	wgpusamplerbindingtype_force32      = 2147483646
 }
 
 enum WGPUStencilOperation {
@@ -322,7 +323,7 @@ enum WGPUStencilOperation {
 	wgpustenciloperation_decrementclamp = 5
 	wgpustenciloperation_incrementwrap  = 6
 	wgpustenciloperation_decrementwrap  = 7
-	wgpustenciloperation_force32        = 2147483647
+	wgpustenciloperation_force32        = 2147483646
 }
 
 enum WGPUStorageTextureAccess {
@@ -330,14 +331,14 @@ enum WGPUStorageTextureAccess {
 	wgpustoragetextureaccess_writeonly = 1
 	wgpustoragetextureaccess_readonly  = 2
 	wgpustoragetextureaccess_readwrite = 3
-	wgpustoragetextureaccess_force32   = 2147483647
+	wgpustoragetextureaccess_force32   = 2147483646
 }
 
 enum WGPUStoreOp {
 	wgpustoreop_undefined = 0
 	wgpustoreop_store     = 1
 	wgpustoreop_discard   = 2
-	wgpustoreop_force32   = 2147483647
+	wgpustoreop_force32   = 2147483646
 }
 
 enum WGPUSurfaceGetCurrentTextureStatus {
@@ -347,21 +348,21 @@ enum WGPUSurfaceGetCurrentTextureStatus {
 	wgpusurfacegetcurrenttexturestatus_lost        = 3
 	wgpusurfacegetcurrenttexturestatus_outofmemory = 4
 	wgpusurfacegetcurrenttexturestatus_devicelost  = 5
-	wgpusurfacegetcurrenttexturestatus_force32     = 2147483647
+	wgpusurfacegetcurrenttexturestatus_force32     = 2147483646
 }
 
 enum WGPUTextureAspect {
 	wgputextureaspect_all         = 0
 	wgputextureaspect_stencilonly = 1
 	wgputextureaspect_depthonly   = 2
-	wgputextureaspect_force32     = 2147483647
+	wgputextureaspect_force32     = 2147483646
 }
 
 enum WGPUTextureDimension {
 	wgputexturedimension_1d      = 0
 	wgputexturedimension_2d      = 1
 	wgputexturedimension_3d      = 2
-	wgputexturedimension_force32 = 2147483647
+	wgputexturedimension_force32 = 2147483646
 }
 
 enum WGPUTextureFormat {
@@ -461,7 +462,7 @@ enum WGPUTextureFormat {
 	wgputextureformat_astc12x10unormsrgb   = 93
 	wgputextureformat_astc12x12unorm       = 94
 	wgputextureformat_astc12x12unormsrgb   = 95
-	wgputextureformat_force32              = 2147483647
+	wgputextureformat_force32              = 2147483646
 }
 
 enum WGPUTextureSampleType {
@@ -471,7 +472,7 @@ enum WGPUTextureSampleType {
 	wgputexturesampletype_depth             = 3
 	wgputexturesampletype_sint              = 4
 	wgputexturesampletype_uint              = 5
-	wgputexturesampletype_force32           = 2147483647
+	wgputexturesampletype_force32           = 2147483646
 }
 
 enum WGPUTextureViewDimension {
@@ -482,7 +483,7 @@ enum WGPUTextureViewDimension {
 	wgputextureviewdimension_cube      = 4
 	wgputextureviewdimension_cubearray = 5
 	wgputextureviewdimension_3d        = 6
-	wgputextureviewdimension_force32   = 2147483647
+	wgputextureviewdimension_force32   = 2147483646
 }
 
 enum WGPUVertexFormat {
@@ -517,14 +518,14 @@ enum WGPUVertexFormat {
 	wgpuvertexformat_sint32x2  = 28
 	wgpuvertexformat_sint32x3  = 29
 	wgpuvertexformat_sint32x4  = 30
-	wgpuvertexformat_force32   = 2147483647
+	wgpuvertexformat_force32   = 2147483646
 }
 
 enum WGPUVertexStepMode {
 	wgpuvertexstepmode_vertex              = 0
 	wgpuvertexstepmode_instance            = 1
 	wgpuvertexstepmode_vertexbuffernotused = 2
-	wgpuvertexstepmode_force32             = 2147483647
+	wgpuvertexstepmode_force32             = 2147483646
 }
 
 enum WGPUBufferUsage {
@@ -539,10 +540,12 @@ enum WGPUBufferUsage {
 	wgpubufferusage_storage      = 128
 	wgpubufferusage_indirect     = 256
 	wgpubufferusage_queryresolve = 512
-	wgpubufferusage_force32      = 2147483647
+	wgpubufferusage_force32      = 2147483646
 }
 
-type WGPUBufferUsageFlags = WGPUFlags
+type WGPUBufferUsageFlags = u32
+
+// type WGPUBufferUsageFlags = WGPUFlag--
 
 enum WGPUColorWriteMask {
 	wgpucolorwritemask_none    = 0
@@ -551,29 +554,29 @@ enum WGPUColorWriteMask {
 	wgpucolorwritemask_blue    = 4
 	wgpucolorwritemask_alpha   = 8
 	wgpucolorwritemask_all     = 15
-	wgpucolorwritemask_force32 = 2147483647
+	wgpucolorwritemask_force32 = 2147483646
 }
 
-type WGPUColorWriteMaskFlags = WGPUFlags
+type WGPUColorWriteMaskFlags = u32
 
 enum WGPUMapMode {
 	wgpumapmode_none    = 0
 	wgpumapmode_read    = 1
 	wgpumapmode_write   = 2
-	wgpumapmode_force32 = 2147483647
+	wgpumapmode_force32 = 2147483646
 }
 
-type WGPUMapModeFlags = WGPUFlags
+type WGPUMapModeFlags = u32
 
 enum WGPUShaderStage {
 	wgpushaderstage_none     = 0
 	wgpushaderstage_vertex   = 1
 	wgpushaderstage_fragment = 2
 	wgpushaderstage_compute  = 4
-	wgpushaderstage_force32  = 2147483647
+	wgpushaderstage_force32  = 2147483646
 }
 
-type WGPUShaderStageFlags = WGPUFlags
+type WGPUShaderStageFlags = u32
 
 enum WGPUTextureUsage {
 	wgputextureusage_none             = 0
@@ -582,10 +585,10 @@ enum WGPUTextureUsage {
 	wgputextureusage_texturebinding   = 4
 	wgputextureusage_storagebinding   = 8
 	wgputextureusage_renderattachment = 16
-	wgputextureusage_force32          = 2147483647
+	wgputextureusage_force32          = 2147483646
 }
 
-type WGPUTextureUsageFlags = WGPUFlags
+type WGPUTextureUsageFlags = u32
 type WGPUBufferMapCallback = fn (WGPUBufferMapAsyncStatus, voidptr)
 
 type WGPUCompilationInfoCallback = fn (WGPUCompilationInfoRequestStatus, &WGPUCompilationInfo, voidptr)
@@ -607,25 +610,25 @@ type WGPURequestAdapterCallback = fn (WGPURequestAdapterStatus, WGPUAdapter, &i8
 type WGPURequestDeviceCallback = fn (WGPURequestDeviceStatus, WGPUDevice, &i8, voidptr)
 
 struct WGPUChainedStruct {
-	next  &WGPUChainedStruct
-	sType WGPUSType
+	next   &WGPUChainedStruct
+	s_type WGPUSType
 }
 
 struct WGPUChainedStructOut {
-	next  &WGPUChainedStructOut
-	sType WGPUSType
+	next   &WGPUChainedStructOut
+	s_type WGPUSType
 }
 
 struct WGPUAdapterProperties {
-	next_in_chain     &WGPUChainedStructOut
-	vendorID          u32
-	vendorName        &i8
-	architecture      &i8
-	deviceID          u32
-	name              &i8
-	driverDescription &i8
-	adapterType       WGPUAdapterType
-	backend_type      WGPUBackendType
+	next_in_chain      &WGPUChainedStructOut
+	vendor_id          u32
+	vendor_name        &i8
+	architecture       &i8
+	device_id          u32
+	name               &i8
+	driver_description &i8
+	adapter_type       WGPUAdapterType
+	backend_type       WGPUBackendType
 }
 
 struct WGPUBindGroupEntry {
@@ -635,28 +638,28 @@ struct WGPUBindGroupEntry {
 	offset        u64
 	size          u64
 	sampler       WGPUSampler
-	textureView   WGPUTextureView
+	texture_view  WGPUTextureView
 }
 
 struct WGPUBlendComponent {
-	operation WGPUBlendOperation
-	srcFactor WGPUBlendFactor
-	dstFactor WGPUBlendFactor
+	operation  WGPUBlendOperation
+	src_factor WGPUBlendFactor
+	dst_factor WGPUBlendFactor
 }
 
 struct WGPUBufferBindingLayout {
-	next_in_chain    &WGPUChainedStruct
-	type_            WGPUBufferBindingType
-	hasDynamicOffset WGPUBool
-	minBindingSize   u64
+	next_in_chain      &WGPUChainedStruct
+	type_              WGPUBufferBindingType
+	has_dynamic_offset WGPUBool
+	min_binding_size   u64
 }
 
 struct WGPUBufferDescriptor {
-	next_in_chain    &WGPUChainedStruct
-	label            &i8
-	usage            WGPUBufferUsageFlags
-	size             u64
-	mappedAtCreation WGPUBool
+	next_in_chain      &WGPUChainedStruct
+	label              &i8
+	usage              WGPUBufferUsageFlags
+	size               u64
+	mapped_at_creation WGPUBool
 }
 
 struct WGPUColor {
@@ -677,16 +680,16 @@ struct WGPUCommandEncoderDescriptor {
 }
 
 struct WGPUCompilationMessage {
-	next_in_chain &WGPUChainedStruct
-	message       &i8
-	type_         WGPUCompilationMessageType
-	lineNum       u64
-	linePos       u64
-	offset        u64
-	length        u64
-	utf16LinePos  u64
-	utf16Offset   u64
-	utf16Length   u64
+	next_in_chain  &WGPUChainedStruct
+	message        &i8
+	type_          WGPUCompilationMessageType
+	line_num       u64
+	line_pos       u64
+	offset         u64
+	length         u64
+	utf16_line_pos u64
+	utf16_offset   u64
+	utf16_length   u64
 }
 
 struct WGPUComputePassTimestampWrites {
@@ -702,9 +705,9 @@ struct WGPUConstantEntry {
 }
 
 struct WGPUExtent3D {
-	width              u32
-	height             u32
-	depthOrArrayLayers u32
+	width                 u32
+	height                u32
+	depth_or_array_layers u32
 }
 
 struct WGPUInstanceDescriptor {
@@ -712,38 +715,38 @@ struct WGPUInstanceDescriptor {
 }
 
 struct WGPULimits {
-	max_texture_dimension_1d                  u32
-	max_texture_dimension_2d                  u32
-	max_texture_dimension_3d                  u32
-	maxTextureArrayLayers                     u32
-	maxBindGroups                             u32
-	maxBindGroupsPlusVertexBuffers            u32
-	maxBindingsPerBindGroup                   u32
-	maxDynamicUniformBuffersPerPipelineLayout u32
-	maxDynamicStorageBuffersPerPipelineLayout u32
-	maxSampledTexturesPerShaderStage          u32
-	maxSamplersPerShaderStage                 u32
-	max_storage_buffers_per_shader_stage      u32
-	max_storage_textures_per_shader_stage     u32
-	maxUniformBuffersPerShaderStage           u32
-	maxUniformBufferBindingSize               u64
-	maxStorageBufferBindingSize               u64
-	min_uniform_buffer_offset_alignment       u32
-	min_storage_buffer_offset_alignment       u32
-	max_vertex_buffers                        u32
-	max_buffer_size                           u64
-	max_vertex_attributes                     u32
-	max_vertex_buffer_array_stride            u32
-	max_inter_stage_shader_components         u32
-	max_inter_stage_shader_variables          u32
-	max_color_attachments                     u32
-	max_color_attachment_bytes_per_sample     u32
-	max_compute_workgroup_storage_size        u32
-	max_compute_invocations_per_workgroup     u32
-	max_compute_workgroup_size_x              u32
-	max_compute_workgroup_size_y              u32
-	max_compute_workgroup_size_z              u32
-	max_compute_workgroups_per_dimension      u32
+	max_texture_dimension_1d                        u32
+	max_texture_dimension_2d                        u32
+	max_texture_dimension_3d                        u32
+	max_texture_array_layers                        u32
+	max_bind_groups                                 u32
+	max_bind_groups_plus_vertex_buffers             u32
+	max_bindings_per_bind_group                     u32
+	max_dynamic_uniform_buffers_per_pipeline_layout u32
+	max_dynamic_storage_buffers_per_pipeline_layout u32
+	max_sampled_textures_per_shader_stage           u32
+	max_samplers_per_shader_stage                   u32
+	max_storage_buffers_per_shader_stage            u32
+	max_storage_textures_per_shader_stage           u32
+	max_uniform_buffers_per_shader_stage            u32
+	max_uniform_buffer_binding_size                 u64
+	max_storage_buffer_binding_size                 u64
+	min_uniform_buffer_offset_alignment             u32
+	min_storage_buffer_offset_alignment             u32
+	max_vertex_buffers                              u32
+	max_buffer_size                                 u64
+	max_vertex_attributes                           u32
+	max_vertex_buffer_array_stride                  u32
+	max_inter_stage_shader_components               u32
+	max_inter_stage_shader_variables                u32
+	max_color_attachments                           u32
+	max_color_attachment_bytes_per_sample           u32
+	max_compute_workgroup_storage_size              u32
+	max_compute_invocations_per_workgroup           u32
+	max_compute_workgroup_size_x                    u32
+	max_compute_workgroup_size_y                    u32
+	max_compute_workgroup_size_z                    u32
+	max_compute_workgroups_per_dimension            u32
 }
 
 struct WGPUMultisampleState {
@@ -1139,8 +1142,8 @@ struct WGPUDeviceDescriptor {
 	required_features      &WGPUFeatureName
 	require_limits         &WGPURequiredLimits
 	default_queue          WGPUQueueDescriptor
-	device_lost_callback   WGPUDeviceLostCallback
-	device_lost_user_data  voidptr
+	// device_lost_callback   WGPUDeviceLostCallback
+	device_lost_user_data voidptr
 }
 
 struct WGPURenderPassDescriptor {
