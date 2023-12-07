@@ -597,7 +597,7 @@ type WGPUCreateComputePipelineAsyncCallback = fn (WGPUCreatePipelineAsyncStatus,
 
 type WGPUCreateRenderPipelineAsyncCallback = fn (WGPUCreatePipelineAsyncStatus, WGPURenderPipeline, &i8, voidptr)
 
-type WGPUDeviceLostCallback = fn (WGPUDeviceLostReason, &i8, voidptr)
+type WGPUDeviceLostCallback = unsafe {fn (WGPUDeviceLostReason, &i8, voidptr)}
 
 type WGPUErrorCallback = fn (WGPUErrorType, &i8, voidptr)
 
@@ -1142,7 +1142,7 @@ struct WGPUDeviceDescriptor {
 	required_features      &WGPUFeatureName
 	require_limits         &WGPURequiredLimits
 	default_queue          WGPUQueueDescriptor
-	// device_lost_callback   WGPUDeviceLostCallback
+	device_lost_callback   WGPUDeviceLostCallback
 	device_lost_user_data voidptr
 }
 
