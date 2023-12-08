@@ -1,3 +1,4 @@
+
 // BSD 3-Clause License
 //
 // Copyright (c) 2019, "WebGPU native" developers
@@ -1027,7 +1028,7 @@ typedef struct WGPUStorageTextureBindingLayout {
     WGPUTextureViewDimension viewDimension;
 } WGPUStorageTextureBindingLayout WGPU_STRUCTURE_ATTRIBUTE;
 
-typedef struct WGPUSurfaceCapabilities {
+typedef struct WGPUSurfaceCapabilities  {
     WGPUChainedStructOut * nextInChain;
     size_t formatCount;
     WGPUTextureFormat * formats;
