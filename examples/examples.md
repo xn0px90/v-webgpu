@@ -20,6 +20,21 @@ v run examples/rotating_v_logo.v
 
 or use the VS Code task `Run Visual Test`.
 
+## Visual test: 3D OBJ from vlang/v-logo
+
+A 3D wireframe visual test that downloads and renders the official OBJ model:
+
+- Source OBJ: `https://github.com/vlang/v-logo/blob/master/dist/3D/v-logo-3d.obj`
+- Local cache path: `examples/assets/v-logo-3d.obj`
+
+Run it with:
+
+```bash
+v -cc clang run examples/v_logo_obj_3d.v
+```
+
+The program automatically downloads the OBJ on first run.
+
 ## 1) Build-only sanity check
 
 Use this command to verify the generated bindings compile:

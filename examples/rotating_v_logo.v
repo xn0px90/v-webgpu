@@ -31,10 +31,17 @@ fn main() {
 		create_window: true
 		window_title: 'v-webgpu visual test: rotating V logo'
 		bg_color: gg.rgb(10, 14, 24)
+		event_fn: event
 		frame_fn: frame
 		user_data: app
 	)
 	app.gg.run()
+}
+
+fn event(e &gg.Event, mut app App) {
+	if e.typ == .key_down && e.key_code == .escape {
+		app.gg.quit()
+	}
 }
 
 fn frame(mut app App) {
