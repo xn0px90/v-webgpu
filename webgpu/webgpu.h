@@ -1777,6 +1777,9 @@ WGPU_EXPORT void wgpuSurfaceRelease(WGPUSurface surface) WGPU_FUNCTION_ATTRIBUTE
 
 // Methods of SurfaceCapabilities
 WGPU_EXPORT void wgpuSurfaceCapabilitiesFreeMembers(WGPUSurfaceCapabilities capabilities) WGPU_FUNCTION_ATTRIBUTE;
+static inline void v_wgpuSurfaceCapabilitiesFreeMembers_ref(WGPUSurfaceCapabilities * capabilities) {
+    wgpuSurfaceCapabilitiesFreeMembers(*capabilities);
+}
 
 // Methods of Texture
 WGPU_EXPORT WGPUTextureView wgpuTextureCreateView(WGPUTexture texture, WGPU_NULLABLE WGPUTextureViewDescriptor const * descriptor) WGPU_FUNCTION_ATTRIBUTE;

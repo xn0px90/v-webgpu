@@ -1,7 +1,7 @@
 Module {
-	name: 'v_webgpu'
-	description: 'webgpu implementation in the V languange'
-	version: '0.0.0'
+	name: 'webgpu'
+	description: 'Low-level WebGPU bindings for V'
+	version: '0.1.0'
 	license: 'MIT'
 	dependencies: []
 }

@@ -5,6 +5,10 @@ module webgpu
 type Size_t = u32
 type Wchar_t = int
 
+pub fn bindings_tag() string {
+	return 'v-webgpu pre-alpha'
+}
+
 // Type u32 = u32
 type WGPUBool = u32
 type WGPUAdapter = voidptr
@@ -597,7 +601,7 @@ type WGPUCreateComputePipelineAsyncCallback = fn (WGPUCreatePipelineAsyncStatus,
 
 type WGPUCreateRenderPipelineAsyncCallback = fn (WGPUCreatePipelineAsyncStatus, WGPURenderPipeline, &i8, voidptr)
 
-type WGPUDeviceLostCallback = unsafe {fn (WGPUDeviceLostReason, &i8, voidptr)}
+type WGPUDeviceLostCallback = fn (WGPUDeviceLostReason, &i8, voidptr)
 
 type WGPUErrorCallback = fn (WGPUErrorType, &i8, voidptr)
 
@@ -1142,7 +1146,7 @@ struct WGPUDeviceDescriptor {
 	required_features      &WGPUFeatureName
 	require_limits         &WGPURequiredLimits
 	default_queue          WGPUQueueDescriptor
-	device_lost_callback   WGPUDeviceLostCallback
+	device_lost_callback   WGPUDeviceLostCallback = unsafe { nil }
 	device_lost_user_data voidptr
 }
 
@@ -2556,10 +2560,10 @@ pub fn wgpusurfacerelease(surface WGPUSurface) {
 	C.wgpuSurfaceRelease(surface)
 }
 
-fn C.wgpuSurfaceCapabilitiesFreeMembers(capabilities WGPUSurfaceCapabilities)
+fn C.v_wgpuSurfaceCapabilitiesFreeMembers_ref(capabilities &WGPUSurfaceCapabilities)
 
 pub fn wgpusurfacecapabilitiesfreemembers(capabilities WGPUSurfaceCapabilities) {
-	C.wgpuSurfaceCapabilitiesFreeMembers(capabilities)
+	C.v_wgpuSurfaceCapabilitiesFreeMembers_ref(&capabilities)
 }
 
 fn C.wgpuTextureCreateView(texture WGPUTexture, descriptor &WGPUTextureViewDescriptor) WGPUTextureView
